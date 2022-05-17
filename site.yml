@@ -1,0 +1,9 @@
+---
+- name: Patching of Linux boxes
+  hosts: linux
+  gather_facts: yes
+  become: yes
+
+  tasks:
+    - include_role:
+        name: environment
