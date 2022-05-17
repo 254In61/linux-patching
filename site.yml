@@ -7,3 +7,6 @@
   tasks:
     - include_role:
         name: environment
+
+    - include_role:
+        name: perfom_patching
