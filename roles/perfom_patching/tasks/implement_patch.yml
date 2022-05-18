@@ -1,8 +1,8 @@
 ---
 # Patching Redhat & Fedora devices
-- name: Perfom patching on Redhat & Fedora
+- name: Perfom patching on RedHat
   block:
-    - name: Redhat & Fedora - Install the latest version of Apache
+    - name: RedHat - Install the latest version of Apache
       yum:
         name: httpd
         state: latest
@@ -11,7 +11,7 @@
     - debug:
         var: http_patch
 
-    - name: Redhat & Fedora - Install latest version of Python3
+    - name: RedHat - Install latest version of Python3
       yum:
         name: python3
         state: latest
@@ -20,18 +20,40 @@
     - debug:
         var: python3_patch
 
-  when: (ansible_distribution == "Fedora") or (ansible_distribution == "Redhat")
+  when: ansible_distribution == "RedHat"
 
-- name: Perfom patching on Redhat & Fedora
+- name: Perfom patching on Fedora
   block:
-    - name: Ubuntu - Install the latest version of Apache
-      apt:
+    - name: Fedora - Install the latest version of Apache
+      yum:
         name: httpd
         state: latest
       register: http_patch
 
     - debug:
         var: http_patch
+
+    - name: Fedora - Install latest version of Python3
+      yum:
+        name: python3
+        state: latest
+      register: python3_patch
+
+    - debug:
+        var: python3_patch
+
+  when: ansible_distribution == "Fedora"
+
+- name: Perfom patching on Ubuntu
+  block:
+    # - name: Ubuntu - Install the latest version of Apache
+    #   apt:
+    #     name: httpd
+    #     state: latest
+    #   register: http_patch
+
+    # - debug:
+    #     var: http_patch
 
     - name: Ubuntu - Install the latest version of Python3
       apt:
