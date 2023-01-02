@@ -1,5 +1,5 @@
 ---
-# Patching Redhat & Fedora devices
+# Patching Redhat
 - name: Perfom patching on RedHat
   block:
     - name: RedHat - Install the latest version of Apache
@@ -22,6 +22,7 @@
 
   when: ansible_distribution == "RedHat"
 
+# Patch Fedora
 - name: Perfom patching on Fedora
   block:
     - name: Fedora - Install the latest version of Apache

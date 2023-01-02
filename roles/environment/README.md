@@ -1,7 +1,9 @@
 Role Name
 =========
 
-A brief description of the role goes here.
+- Role includes tasks to check environmental variables.
+
+- Could reading values or Facts too , write them on a file and git commit them!
 
 Requirements
 ------------
