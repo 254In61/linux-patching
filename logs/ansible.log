@@ -154,3 +154,521 @@
 2022-12-13 17:30:09,492 p=3303835 u=amaseghe n=ansible | environment : Print dates ------------------------------------------------------------------------------------------------------------ 0.14s
 2022-12-13 17:30:09,493 p=3303835 u=amaseghe n=ansible | patching : Fedora - Install latest version of Python3 -------------------------------------------------------------------------------- 0.14s
 2022-12-13 17:30:09,493 p=3303835 u=amaseghe n=ansible | include vars ------------------------------------------------------------------------------------------------------------------------- 0.13s
+2024-07-12 11:04:24,663 p=4149097 u=amaseghe n=ansible | PLAY [Patching of Linux boxes] ******************************************************************************************
+2024-07-12 11:04:24,671 p=4149097 u=amaseghe n=ansible | TASK [Gathering Facts] **************************************************************************************************
+2024-07-12 11:04:26,843 p=4149097 u=amaseghe n=ansible | ok: [192.168.1.100]
+2024-07-12 11:04:26,924 p=4149097 u=amaseghe n=ansible | ok: [192.168.1.99]
+2024-07-12 11:04:26,941 p=4149097 u=amaseghe n=ansible | TASK [include vars] *****************************************************************************************************
+2024-07-12 11:04:26,951 p=4149097 u=amaseghe n=ansible | ok: [192.168.1.99]
+2024-07-12 11:04:26,957 p=4149097 u=amaseghe n=ansible | ok: [192.168.1.100]
+2024-07-12 11:04:26,961 p=4149097 u=amaseghe n=ansible | TASK [environment : Print dates] ****************************************************************************************
+2024-07-12 11:04:26,973 p=4149097 u=amaseghe n=ansible | ok: [192.168.1.99] => {
+    "msg": [
+        "date : 2024-07-11",
+        "time : 21:04:26"
+    ]
+}
+2024-07-12 11:04:26,980 p=4149097 u=amaseghe n=ansible | ok: [192.168.1.100] => {
+    "msg": [
+        "date : 2024-07-12",
+        "time : 11:04:26"
+    ]
+}
+2024-07-12 11:04:26,983 p=4149097 u=amaseghe n=ansible | TASK [environment : debug] **********************************************************************************************
+2024-07-12 11:04:26,997 p=4149097 u=amaseghe n=ansible | ok: [192.168.1.99] => {
+    "msg": [
+        "distribution : RedHat",
+        "distribution_major_version : 9"
+    ]
+}
+2024-07-12 11:04:27,005 p=4149097 u=amaseghe n=ansible | ok: [192.168.1.100] => {
+    "msg": [
+        "distribution : Ubuntu",
+        "distribution_major_version : 22"
+    ]
+}
+2024-07-12 11:04:27,017 p=4149097 u=amaseghe n=ansible | TASK [patching : Update all packages to their latest version] ***********************************************************
+2024-07-12 11:04:27,034 p=4149097 u=amaseghe n=ansible | skipping: [192.168.1.100]
+2024-07-12 11:05:15,469 p=4149097 u=amaseghe n=ansible | changed: [192.168.1.99]
+2024-07-12 11:05:15,479 p=4149097 u=amaseghe n=ansible | TASK [patching : Upgrade the OS (apt-get dist-upgrade)] *****************************************************************
+2024-07-12 11:05:15,501 p=4149097 u=amaseghe n=ansible | skipping: [192.168.1.100]
+2024-07-12 11:05:16,381 p=4149097 u=amaseghe n=ansible | fatal: [192.168.1.99]: FAILED! => {"changed": false, "msg": "Unsupported parameters for (ansible.legacy.dnf) module: upgrade. Supported parameters include: allow_downgrade, allowerasing, autoremove, bugfix, cacheonly, conf_file, disable_excludes, disable_gpg_check, disable_plugin, disablerepo, download_dir, download_only, enable_plugin, enablerepo, exclude, install_repoquery, install_weak_deps, installroot, list, lock_timeout, name, nobest, releasever, security, skip_broken, sslverify, state, update_cache, update_only, use_backend, validate_certs (expire-cache, pkg)."}
+2024-07-12 11:05:16,394 p=4149097 u=amaseghe n=ansible | TASK [patching : Remove useless packages from the cache] ****************************************************************
+2024-07-12 11:05:16,407 p=4149097 u=amaseghe n=ansible | skipping: [192.168.1.100]
+2024-07-12 11:05:16,413 p=4149097 u=amaseghe n=ansible | TASK [patching : Remove dependencies that are no longer required and purge their configuration files] *******************
+2024-07-12 11:05:16,422 p=4149097 u=amaseghe n=ansible | skipping: [192.168.1.100]
+2024-07-12 11:05:16,427 p=4149097 u=amaseghe n=ansible | TASK [patching : Update all packages to their latest version] ***********************************************************
+2024-07-12 11:05:18,109 p=4149097 u=amaseghe n=ansible | changed: [192.168.1.100]
+2024-07-12 11:05:18,122 p=4149097 u=amaseghe n=ansible | TASK [patching : Upgrade the OS (apt-get dist-upgrade)] *****************************************************************
+2024-07-12 11:05:19,251 p=4149097 u=amaseghe n=ansible | changed: [192.168.1.100]
+2024-07-12 11:05:19,265 p=4149097 u=amaseghe n=ansible | TASK [patching : Remove useless packages from the cache] ****************************************************************
+2024-07-12 11:05:20,270 p=4149097 u=amaseghe n=ansible | ok: [192.168.1.100]
+2024-07-12 11:05:20,286 p=4149097 u=amaseghe n=ansible | TASK [patching : Remove dependencies that are no longer required and purge their configuration files] *******************
+2024-07-12 11:05:21,372 p=4149097 u=amaseghe n=ansible | ok: [192.168.1.100]
+2024-07-12 11:05:21,401 p=4149097 u=amaseghe n=ansible | TASK [debug] ************************************************************************************************************
+2024-07-12 11:05:21,412 p=4149097 u=amaseghe n=ansible | ok: [192.168.1.100] => {
+    "msg": [
+        "All hosts now updated"
+    ]
+}
+2024-07-12 11:05:21,421 p=4149097 u=amaseghe n=ansible | PLAY RECAP **************************************************************************************************************
+2024-07-12 11:05:21,422 p=4149097 u=amaseghe n=ansible | 192.168.1.100              : ok=9    changed=2    unreachable=0    failed=0    skipped=4    rescued=0    ignored=0   
+2024-07-12 11:05:21,422 p=4149097 u=amaseghe n=ansible | 192.168.1.99               : ok=5    changed=1    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2024-07-12 11:09:19,710 p=4163243 u=amaseghe n=ansible | PLAY [Patching of Linux boxes] ******************************************************************************************
+2024-07-12 11:09:19,714 p=4163243 u=amaseghe n=ansible | TASK [Gathering Facts] **************************************************************************************************
+2024-07-12 11:09:21,770 p=4163243 u=amaseghe n=ansible | ok: [192.168.1.99]
+2024-07-12 11:09:22,295 p=4163243 u=amaseghe n=ansible | ok: [192.168.1.100]
+2024-07-12 11:09:22,310 p=4163243 u=amaseghe n=ansible | TASK [include vars] *****************************************************************************************************
+2024-07-12 11:09:22,323 p=4163243 u=amaseghe n=ansible | ok: [192.168.1.99]
+2024-07-12 11:09:22,328 p=4163243 u=amaseghe n=ansible | ok: [192.168.1.100]
+2024-07-12 11:09:22,332 p=4163243 u=amaseghe n=ansible | TASK [environment : Print dates] ****************************************************************************************
+2024-07-12 11:09:22,345 p=4163243 u=amaseghe n=ansible | ok: [192.168.1.99] => {
+    "msg": [
+        "date : 2024-07-11",
+        "time : 21:09:21"
+    ]
+}
+2024-07-12 11:09:22,353 p=4163243 u=amaseghe n=ansible | ok: [192.168.1.100] => {
+    "msg": [
+        "date : 2024-07-12",
+        "time : 11:09:21"
+    ]
+}
+2024-07-12 11:09:22,357 p=4163243 u=amaseghe n=ansible | TASK [environment : debug] **********************************************************************************************
+2024-07-12 11:09:22,373 p=4163243 u=amaseghe n=ansible | ok: [192.168.1.99] => {
+    "msg": [
+        "distribution : RedHat",
+        "distribution_major_version : 9"
+    ]
+}
+2024-07-12 11:09:22,384 p=4163243 u=amaseghe n=ansible | ok: [192.168.1.100] => {
+    "msg": [
+        "distribution : Ubuntu",
+        "distribution_major_version : 22"
+    ]
+}
+2024-07-12 11:09:22,401 p=4163243 u=amaseghe n=ansible | TASK [patching : patch - RedHat - Update all packages to their latest version] ******************************************
+2024-07-12 11:09:22,424 p=4163243 u=amaseghe n=ansible | skipping: [192.168.1.100]
+2024-07-12 11:09:26,230 p=4163243 u=amaseghe n=ansible | ok: [192.168.1.99]
+2024-07-12 11:09:26,234 p=4163243 u=amaseghe n=ansible | TASK [patching : patch - RedHat - Remove useless packages from the cache] ***********************************************
+2024-07-12 11:09:26,250 p=4163243 u=amaseghe n=ansible | skipping: [192.168.1.100]
+2024-07-12 11:09:27,127 p=4163243 u=amaseghe n=ansible | fatal: [192.168.1.99]: FAILED! => {"changed": false, "msg": "Unsupported parameters for (ansible.legacy.dnf) module: autoclean. Supported parameters include: allow_downgrade, allowerasing, autoremove, bugfix, cacheonly, conf_file, disable_excludes, disable_gpg_check, disable_plugin, disablerepo, download_dir, download_only, enable_plugin, enablerepo, exclude, install_repoquery, install_weak_deps, installroot, list, lock_timeout, name, nobest, releasever, security, skip_broken, sslverify, state, update_cache, update_only, use_backend, validate_certs (expire-cache, pkg)."}
+2024-07-12 11:09:27,140 p=4163243 u=amaseghe n=ansible | TASK [patching : patch - RedHat - Remove dependencies that are no longer required and purge their configuration files] ***
+2024-07-12 11:09:27,152 p=4163243 u=amaseghe n=ansible | skipping: [192.168.1.100]
+2024-07-12 11:09:27,157 p=4163243 u=amaseghe n=ansible | TASK [patching : patch - Ubuntu - Update all packages to their latest version] ******************************************
+2024-07-12 11:09:29,216 p=4163243 u=amaseghe n=ansible | changed: [192.168.1.100]
+2024-07-12 11:09:29,229 p=4163243 u=amaseghe n=ansible | TASK [patching : patch - Ubuntu - Remove useless packages from the cache] ***********************************************
+2024-07-12 11:09:30,269 p=4163243 u=amaseghe n=ansible | ok: [192.168.1.100]
+2024-07-12 11:09:30,281 p=4163243 u=amaseghe n=ansible | TASK [patching : patch - Ubuntu - Remove dependencies that are no longer required and purge their configuration files] ***
+2024-07-12 11:09:31,658 p=4163243 u=amaseghe n=ansible | ok: [192.168.1.100]
+2024-07-12 11:09:31,683 p=4163243 u=amaseghe n=ansible | TASK [debug] ************************************************************************************************************
+2024-07-12 11:09:31,694 p=4163243 u=amaseghe n=ansible | ok: [192.168.1.100] => {
+    "msg": [
+        "All hosts now updated"
+    ]
+}
+2024-07-12 11:09:31,703 p=4163243 u=amaseghe n=ansible | PLAY RECAP **************************************************************************************************************
+2024-07-12 11:09:31,703 p=4163243 u=amaseghe n=ansible | 192.168.1.100              : ok=8    changed=1    unreachable=0    failed=0    skipped=3    rescued=0    ignored=0   
+2024-07-12 11:09:31,703 p=4163243 u=amaseghe n=ansible | 192.168.1.99               : ok=5    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2024-07-12 11:16:26,919 p=4182975 u=amaseghe n=ansible | PLAY [Patching of Linux boxes] ******************************************************************************************
+2024-07-12 11:16:26,923 p=4182975 u=amaseghe n=ansible | TASK [Gathering Facts] **************************************************************************************************
+2024-07-12 11:16:28,962 p=4182975 u=amaseghe n=ansible | ok: [192.168.1.99]
+2024-07-12 11:16:28,966 p=4182975 u=amaseghe n=ansible | ok: [192.168.1.100]
+2024-07-12 11:16:28,983 p=4182975 u=amaseghe n=ansible | TASK [include vars] *****************************************************************************************************
+2024-07-12 11:16:28,995 p=4182975 u=amaseghe n=ansible | ok: [192.168.1.99]
+2024-07-12 11:16:29,001 p=4182975 u=amaseghe n=ansible | ok: [192.168.1.100]
+2024-07-12 11:16:29,005 p=4182975 u=amaseghe n=ansible | TASK [environment : Print dates] ****************************************************************************************
+2024-07-12 11:16:29,019 p=4182975 u=amaseghe n=ansible | ok: [192.168.1.99] => {
+    "msg": [
+        "date : 2024-07-11",
+        "time : 21:16:28"
+    ]
+}
+2024-07-12 11:16:29,027 p=4182975 u=amaseghe n=ansible | ok: [192.168.1.100] => {
+    "msg": [
+        "date : 2024-07-12",
+        "time : 11:16:28"
+    ]
+}
+2024-07-12 11:16:29,031 p=4182975 u=amaseghe n=ansible | TASK [environment : debug] **********************************************************************************************
+2024-07-12 11:16:29,044 p=4182975 u=amaseghe n=ansible | ok: [192.168.1.99] => {
+    "msg": [
+        "distribution : RedHat",
+        "distribution_major_version : 9"
+    ]
+}
+2024-07-12 11:16:29,052 p=4182975 u=amaseghe n=ansible | ok: [192.168.1.100] => {
+    "msg": [
+        "distribution : Ubuntu",
+        "distribution_major_version : 22"
+    ]
+}
+2024-07-12 11:16:29,064 p=4182975 u=amaseghe n=ansible | TASK [patching : patch - RedHat - Update all packages to their latest version] ******************************************
+2024-07-12 11:16:29,083 p=4182975 u=amaseghe n=ansible | skipping: [192.168.1.100]
+2024-07-12 11:16:32,669 p=4182975 u=amaseghe n=ansible | ok: [192.168.1.99]
+2024-07-12 11:16:32,679 p=4182975 u=amaseghe n=ansible | TASK [patching : patch - RedHat - Remove dependencies that are no longer required and purge their configuration files] ***
+2024-07-12 11:16:32,700 p=4182975 u=amaseghe n=ansible | skipping: [192.168.1.100]
+2024-07-12 11:16:33,510 p=4182975 u=amaseghe n=ansible | fatal: [192.168.1.99]: FAILED! => {"changed": false, "msg": "Unsupported parameters for (ansible.legacy.dnf) module: purge. Supported parameters include: allow_downgrade, allowerasing, autoremove, bugfix, cacheonly, conf_file, disable_excludes, disable_gpg_check, disable_plugin, disablerepo, download_dir, download_only, enable_plugin, enablerepo, exclude, install_repoquery, install_weak_deps, installroot, list, lock_timeout, name, nobest, releasever, security, skip_broken, sslverify, state, update_cache, update_only, use_backend, validate_certs (expire-cache, pkg)."}
+2024-07-12 11:16:33,523 p=4182975 u=amaseghe n=ansible | TASK [patching : patch - Ubuntu - Update all packages to their latest version] ******************************************
+2024-07-12 11:16:34,996 p=4182975 u=amaseghe n=ansible | changed: [192.168.1.100]
+2024-07-12 11:16:35,010 p=4182975 u=amaseghe n=ansible | TASK [patching : patch - Ubuntu - Remove dependencies that are no longer required and purge their configuration files] ***
+2024-07-12 11:16:36,204 p=4182975 u=amaseghe n=ansible | ok: [192.168.1.100]
+2024-07-12 11:16:36,220 p=4182975 u=amaseghe n=ansible | TASK [debug] ************************************************************************************************************
+2024-07-12 11:16:36,232 p=4182975 u=amaseghe n=ansible | ok: [192.168.1.100] => {
+    "msg": [
+        "All hosts now updated"
+    ]
+}
+2024-07-12 11:16:36,248 p=4182975 u=amaseghe n=ansible | PLAY RECAP **************************************************************************************************************
+2024-07-12 11:16:36,248 p=4182975 u=amaseghe n=ansible | 192.168.1.100              : ok=7    changed=1    unreachable=0    failed=0    skipped=2    rescued=0    ignored=0   
+2024-07-12 11:16:36,248 p=4182975 u=amaseghe n=ansible | 192.168.1.99               : ok=5    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2024-07-12 11:17:23,988 p=4185779 u=amaseghe n=ansible | PLAY [Patching of Linux boxes] ******************************************************************************************
+2024-07-12 11:17:23,992 p=4185779 u=amaseghe n=ansible | TASK [Gathering Facts] **************************************************************************************************
+2024-07-12 11:17:25,797 p=4185779 u=amaseghe n=ansible | ok: [192.168.1.99]
+2024-07-12 11:17:26,007 p=4185779 u=amaseghe n=ansible | ok: [192.168.1.100]
+2024-07-12 11:17:26,023 p=4185779 u=amaseghe n=ansible | TASK [include vars] *****************************************************************************************************
+2024-07-12 11:17:26,034 p=4185779 u=amaseghe n=ansible | ok: [192.168.1.99]
+2024-07-12 11:17:26,041 p=4185779 u=amaseghe n=ansible | ok: [192.168.1.100]
+2024-07-12 11:17:26,046 p=4185779 u=amaseghe n=ansible | TASK [environment : Print dates] ****************************************************************************************
+2024-07-12 11:17:26,060 p=4185779 u=amaseghe n=ansible | ok: [192.168.1.99] => {
+    "msg": [
+        "date : 2024-07-11",
+        "time : 21:17:25"
+    ]
+}
+2024-07-12 11:17:26,072 p=4185779 u=amaseghe n=ansible | ok: [192.168.1.100] => {
+    "msg": [
+        "date : 2024-07-12",
+        "time : 11:17:25"
+    ]
+}
+2024-07-12 11:17:26,075 p=4185779 u=amaseghe n=ansible | TASK [environment : debug] **********************************************************************************************
+2024-07-12 11:17:26,095 p=4185779 u=amaseghe n=ansible | ok: [192.168.1.99] => {
+    "msg": [
+        "distribution : RedHat",
+        "distribution_major_version : 9"
+    ]
+}
+2024-07-12 11:17:26,104 p=4185779 u=amaseghe n=ansible | ok: [192.168.1.100] => {
+    "msg": [
+        "distribution : Ubuntu",
+        "distribution_major_version : 22"
+    ]
+}
+2024-07-12 11:17:26,133 p=4185779 u=amaseghe n=ansible | TASK [patching : patch - RedHat - Update all packages to their latest version] ******************************************
+2024-07-12 11:17:26,161 p=4185779 u=amaseghe n=ansible | skipping: [192.168.1.100]
+2024-07-12 11:17:29,814 p=4185779 u=amaseghe n=ansible | ok: [192.168.1.99]
+2024-07-12 11:17:29,825 p=4185779 u=amaseghe n=ansible | TASK [patching : patch - RedHat - Remove dependencies that are no longer required and purge their configuration files] ***
+2024-07-12 11:17:29,847 p=4185779 u=amaseghe n=ansible | skipping: [192.168.1.100]
+2024-07-12 11:17:35,554 p=4185779 u=amaseghe n=ansible | changed: [192.168.1.99]
+2024-07-12 11:17:35,564 p=4185779 u=amaseghe n=ansible | TASK [patching : patch - Ubuntu - Update all packages to their latest version] ******************************************
+2024-07-12 11:17:35,580 p=4185779 u=amaseghe n=ansible | skipping: [192.168.1.99]
+2024-07-12 11:17:37,135 p=4185779 u=amaseghe n=ansible | changed: [192.168.1.100]
+2024-07-12 11:17:37,138 p=4185779 u=amaseghe n=ansible | TASK [patching : patch - Ubuntu - Remove dependencies that are no longer required and purge their configuration files] ***
+2024-07-12 11:17:37,147 p=4185779 u=amaseghe n=ansible | skipping: [192.168.1.99]
+2024-07-12 11:17:38,776 p=4185779 u=amaseghe n=ansible | ok: [192.168.1.100]
+2024-07-12 11:17:38,811 p=4185779 u=amaseghe n=ansible | TASK [debug] ************************************************************************************************************
+2024-07-12 11:17:38,823 p=4185779 u=amaseghe n=ansible | ok: [192.168.1.99] => {
+    "msg": [
+        "All hosts now updated"
+    ]
+}
+2024-07-12 11:17:38,829 p=4185779 u=amaseghe n=ansible | ok: [192.168.1.100] => {
+    "msg": [
+        "All hosts now updated"
+    ]
+}
+2024-07-12 11:17:38,842 p=4185779 u=amaseghe n=ansible | PLAY RECAP **************************************************************************************************************
+2024-07-12 11:17:38,842 p=4185779 u=amaseghe n=ansible | 192.168.1.100              : ok=7    changed=1    unreachable=0    failed=0    skipped=2    rescued=0    ignored=0   
+2024-07-12 11:17:38,842 p=4185779 u=amaseghe n=ansible | 192.168.1.99               : ok=7    changed=1    unreachable=0    failed=0    skipped=2    rescued=0    ignored=0   
+2024-07-12 11:18:57,594 p=4191220 u=amaseghe n=ansible | PLAY [Patching of Linux boxes] ******************************************************************************************
+2024-07-12 11:18:57,599 p=4191220 u=amaseghe n=ansible | TASK [Gathering Facts] **************************************************************************************************
+2024-07-12 11:18:59,940 p=4191220 u=amaseghe n=ansible | ok: [192.168.1.100]
+2024-07-12 11:19:00,589 p=4191220 u=amaseghe n=ansible | ok: [192.168.1.99]
+2024-07-12 11:19:00,603 p=4191220 u=amaseghe n=ansible | TASK [include vars] *****************************************************************************************************
+2024-07-12 11:19:00,617 p=4191220 u=amaseghe n=ansible | ok: [192.168.1.99]
+2024-07-12 11:19:00,629 p=4191220 u=amaseghe n=ansible | ok: [192.168.1.100]
+2024-07-12 11:19:00,634 p=4191220 u=amaseghe n=ansible | TASK [environment : Print dates] ****************************************************************************************
+2024-07-12 11:19:00,652 p=4191220 u=amaseghe n=ansible | ok: [192.168.1.99] => {
+    "msg": [
+        "date : 2024-07-11",
+        "time : 21:18:58"
+    ]
+}
+2024-07-12 11:19:00,664 p=4191220 u=amaseghe n=ansible | ok: [192.168.1.100] => {
+    "msg": [
+        "date : 2024-07-12",
+        "time : 11:18:59"
+    ]
+}
+2024-07-12 11:19:00,669 p=4191220 u=amaseghe n=ansible | TASK [environment : debug] **********************************************************************************************
+2024-07-12 11:19:00,684 p=4191220 u=amaseghe n=ansible | ok: [192.168.1.99] => {
+    "msg": [
+        "distribution : RedHat",
+        "distribution_major_version : 9"
+    ]
+}
+2024-07-12 11:19:00,697 p=4191220 u=amaseghe n=ansible | ok: [192.168.1.100] => {
+    "msg": [
+        "distribution : Ubuntu",
+        "distribution_major_version : 22"
+    ]
+}
+2024-07-12 11:19:00,711 p=4191220 u=amaseghe n=ansible | TASK [patching : patch - RedHat - Update all packages to their latest version] ******************************************
+2024-07-12 11:19:00,730 p=4191220 u=amaseghe n=ansible | skipping: [192.168.1.100]
+2024-07-12 11:19:04,291 p=4191220 u=amaseghe n=ansible | ok: [192.168.1.99]
+2024-07-12 11:19:04,301 p=4191220 u=amaseghe n=ansible | TASK [patching : patch - RedHat - Remove dependencies that are no longer required and purge their configuration files] ***
+2024-07-12 11:19:04,324 p=4191220 u=amaseghe n=ansible | skipping: [192.168.1.100]
+2024-07-12 11:19:07,888 p=4191220 u=amaseghe n=ansible | ok: [192.168.1.99]
+2024-07-12 11:19:07,900 p=4191220 u=amaseghe n=ansible | TASK [patching : patch - Ubuntu - Update all packages to their latest version] ******************************************
+2024-07-12 11:19:07,918 p=4191220 u=amaseghe n=ansible | skipping: [192.168.1.99]
+2024-07-12 11:19:09,541 p=4191220 u=amaseghe n=ansible | changed: [192.168.1.100]
+2024-07-12 11:19:09,550 p=4191220 u=amaseghe n=ansible | TASK [patching : patch - Ubuntu - Remove dependencies that are no longer required and purge their configuration files] ***
+2024-07-12 11:19:09,565 p=4191220 u=amaseghe n=ansible | skipping: [192.168.1.99]
+2024-07-12 11:19:10,854 p=4191220 u=amaseghe n=ansible | ok: [192.168.1.100]
+2024-07-12 11:19:10,886 p=4191220 u=amaseghe n=ansible | TASK [debug] ************************************************************************************************************
+2024-07-12 11:19:10,903 p=4191220 u=amaseghe n=ansible | ok: [192.168.1.99] => {
+    "msg": [
+        "192.168.1.99 packages updated successfully "
+    ]
+}
+2024-07-12 11:19:10,911 p=4191220 u=amaseghe n=ansible | ok: [192.168.1.100] => {
+    "msg": [
+        "192.168.1.100 packages updated successfully "
+    ]
+}
+2024-07-12 11:19:10,925 p=4191220 u=amaseghe n=ansible | PLAY RECAP **************************************************************************************************************
+2024-07-12 11:19:10,925 p=4191220 u=amaseghe n=ansible | 192.168.1.100              : ok=7    changed=1    unreachable=0    failed=0    skipped=2    rescued=0    ignored=0   
+2024-07-12 11:19:10,925 p=4191220 u=amaseghe n=ansible | 192.168.1.99               : ok=7    changed=0    unreachable=0    failed=0    skipped=2    rescued=0    ignored=0   
+2024-07-12 11:28:15,936 p=24203 u=amaseghe n=ansible | {"/home/amaseghe/.local/lib/python3.10/site-packages/ansible_collections": {"amazon.aws": {"version": "7.0.0"}, "ansible.netcommon": {"version": "5.3.0"}, "ansible.posix": {"version": "1.5.4"}, "ansible.utils": {"version": "2.12.0"}, "ansible.windows": {"version": "2.2.0"}, "arista.eos": {"version": "6.2.2"}, "awx.awx": {"version": "23.5.0"}, "azure.azcollection": {"version": "1.19.0"}, "check_point.mgmt": {"version": "5.1.1"}, "chocolatey.chocolatey": {"version": "1.5.1"}, "cisco.aci": {"version": "2.8.0"}, "cisco.asa": {"version": "4.0.3"}, "cisco.dnac": {"version": "6.8.1"}, "cisco.intersight": {"version": "2.0.3"}, "cisco.ios": {"version": "5.3.0"}, "cisco.iosxr": {"version": "6.1.1"}, "cisco.ise": {"version": "2.6.2"}, "cisco.meraki": {"version": "2.16.16"}, "cisco.mso": {"version": "2.5.0"}, "cisco.nxos": {"version": "5.3.0"}, "cisco.ucs": {"version": "1.10.0"}, "cloud.common": {"version": "2.1.4"}, "cloudscale_ch.cloud": {"version": "2.3.1"}, "community.aws": {"version": "7.0.0"}, "community.azure": {"version": "2.0.0"}, "community.ciscosmb": {"version": "1.0.7"}, "community.crypto": {"version": "2.16.1"}, "community.digitalocean": {"version": "1.24.0"}, "community.dns": {"version": "2.6.4"}, "community.docker": {"version": "3.4.11"}, "community.general": {"version": "8.1.0"}, "community.grafana": {"version": "1.6.1"}, "community.hashi_vault": {"version": "6.0.0"}, "community.hrobot": {"version": "1.8.2"}, "community.libvirt": {"version": "1.3.0"}, "community.mongodb": {"version": "1.6.3"}, "community.mysql": {"version": "3.8.0"}, "community.network": {"version": "5.0.2"}, "community.okd": {"version": "2.3.0"}, "community.postgresql": {"version": "3.2.0"}, "community.proxysql": {"version": "1.5.1"}, "community.rabbitmq": {"version": "1.2.3"}, "community.routeros": {"version": "2.11.0"}, "community.sap": {"version": "2.0.0"}, "community.sap_libs": {"version": "1.4.1"}, "community.sops": {"version": "1.6.7"}, "community.vmware": {"version": "4.0.1"}, "community.windows": {"version": "2.1.0"}, "community.zabbix": {"version": "2.2.0"}, "containers.podman": {"version": "1.11.0"}, "cyberark.conjur": {"version": "1.2.2"}, "cyberark.pas": {"version": "1.0.23"}, "dellemc.enterprise_sonic": {"version": "2.2.0"}, "dellemc.openmanage": {"version": "8.5.0"}, "dellemc.powerflex": {"version": "2.1.0"}, "dellemc.unity": {"version": "1.7.1"}, "f5networks.f5_modules": {"version": "1.27.1"}, "fortinet.fortimanager": {"version": "2.3.0"}, "fortinet.fortios": {"version": "2.3.4"}, "frr.frr": {"version": "2.0.2"}, "gluster.gluster": {"version": "1.0.2"}, "google.cloud": {"version": "1.3.0"}, "grafana.grafana": {"version": "2.2.3"}, "hetzner.hcloud": {"version": "2.4.1"}, "hpe.nimble": {"version": "1.1.4"}, "ibm.qradar": {"version": "2.1.0"}, "ibm.spectrum_virtualize": {"version": "2.0.0"}, "ibm.storage_virtualize": {"version": "2.1.0"}, "infinidat.infinibox": {"version": "1.3.12"}, "infoblox.nios_modules": {"version": "1.5.0"}, "inspur.ispim": {"version": "2.2.0"}, "inspur.sm": {"version": "2.3.0"}, "junipernetworks.junos": {"version": "5.3.1"}, "kubernetes.core": {"version": "2.4.0"}, "lowlydba.sqlserver": {"version": "2.2.2"}, "microsoft.ad": {"version": "1.4.1"}, "netapp.aws": {"version": "21.7.1"}, "netapp.azure": {"version": "21.10.1"}, "netapp.cloudmanager": {"version": "21.22.1"}, "netapp.elementsw": {"version": "21.7.0"}, "netapp.ontap": {"version": "22.8.3"}, "netapp.storagegrid": {"version": "21.11.1"}, "netapp.um_info": {"version": "21.8.1"}, "netapp_eseries.santricity": {"version": "1.4.0"}, "netbox.netbox": {"version": "3.15.0"}, "ngine_io.cloudstack": {"version": "2.3.0"}, "ngine_io.exoscale": {"version": "1.1.0"}, "openstack.cloud": {"version": "2.2.0"}, "openvswitch.openvswitch": {"version": "2.1.1"}, "ovirt.ovirt": {"version": "3.2.0"}, "purestorage.flasharray": {"version": "1.24.0"}, "purestorage.flashblade": {"version": "1.14.0"}, "purestorage.fusion": {"version": "1.6.0"}, "sensu.sensu_go": {"version": "1.14.0"}, "splunk.es": {"version": "2.1.2"}, "t_systems_mms.icinga_director": {"version": "2.0.1"}, "telekom_mms.icinga_director": {"version": "1.35.0"}, "theforeman.foreman": {"version": "3.15.0"}, "vmware.vmware_rest": {"version": "2.3.1"}, "vultr.cloud": {"version": "1.10.1"}, "vyos.vyos": {"version": "4.1.0"}, "wti.remote": {"version": "1.0.5"}}}
+2024-07-12 11:28:16,720 p=24304 u=amaseghe n=ansible | {"/home/amaseghe/.local/lib/python3.10/site-packages/ansible_collections": {"amazon.aws": {"version": "7.0.0"}, "ansible.netcommon": {"version": "5.3.0"}, "ansible.posix": {"version": "1.5.4"}, "ansible.utils": {"version": "2.12.0"}, "ansible.windows": {"version": "2.2.0"}, "arista.eos": {"version": "6.2.2"}, "awx.awx": {"version": "23.5.0"}, "azure.azcollection": {"version": "1.19.0"}, "check_point.mgmt": {"version": "5.1.1"}, "chocolatey.chocolatey": {"version": "1.5.1"}, "cisco.aci": {"version": "2.8.0"}, "cisco.asa": {"version": "4.0.3"}, "cisco.dnac": {"version": "6.8.1"}, "cisco.intersight": {"version": "2.0.3"}, "cisco.ios": {"version": "5.3.0"}, "cisco.iosxr": {"version": "6.1.1"}, "cisco.ise": {"version": "2.6.2"}, "cisco.meraki": {"version": "2.16.16"}, "cisco.mso": {"version": "2.5.0"}, "cisco.nxos": {"version": "5.3.0"}, "cisco.ucs": {"version": "1.10.0"}, "cloud.common": {"version": "2.1.4"}, "cloudscale_ch.cloud": {"version": "2.3.1"}, "community.aws": {"version": "7.0.0"}, "community.azure": {"version": "2.0.0"}, "community.ciscosmb": {"version": "1.0.7"}, "community.crypto": {"version": "2.16.1"}, "community.digitalocean": {"version": "1.24.0"}, "community.dns": {"version": "2.6.4"}, "community.docker": {"version": "3.4.11"}, "community.general": {"version": "8.1.0"}, "community.grafana": {"version": "1.6.1"}, "community.hashi_vault": {"version": "6.0.0"}, "community.hrobot": {"version": "1.8.2"}, "community.libvirt": {"version": "1.3.0"}, "community.mongodb": {"version": "1.6.3"}, "community.mysql": {"version": "3.8.0"}, "community.network": {"version": "5.0.2"}, "community.okd": {"version": "2.3.0"}, "community.postgresql": {"version": "3.2.0"}, "community.proxysql": {"version": "1.5.1"}, "community.rabbitmq": {"version": "1.2.3"}, "community.routeros": {"version": "2.11.0"}, "community.sap": {"version": "2.0.0"}, "community.sap_libs": {"version": "1.4.1"}, "community.sops": {"version": "1.6.7"}, "community.vmware": {"version": "4.0.1"}, "community.windows": {"version": "2.1.0"}, "community.zabbix": {"version": "2.2.0"}, "containers.podman": {"version": "1.11.0"}, "cyberark.conjur": {"version": "1.2.2"}, "cyberark.pas": {"version": "1.0.23"}, "dellemc.enterprise_sonic": {"version": "2.2.0"}, "dellemc.openmanage": {"version": "8.5.0"}, "dellemc.powerflex": {"version": "2.1.0"}, "dellemc.unity": {"version": "1.7.1"}, "f5networks.f5_modules": {"version": "1.27.1"}, "fortinet.fortimanager": {"version": "2.3.0"}, "fortinet.fortios": {"version": "2.3.4"}, "frr.frr": {"version": "2.0.2"}, "gluster.gluster": {"version": "1.0.2"}, "google.cloud": {"version": "1.3.0"}, "grafana.grafana": {"version": "2.2.3"}, "hetzner.hcloud": {"version": "2.4.1"}, "hpe.nimble": {"version": "1.1.4"}, "ibm.qradar": {"version": "2.1.0"}, "ibm.spectrum_virtualize": {"version": "2.0.0"}, "ibm.storage_virtualize": {"version": "2.1.0"}, "infinidat.infinibox": {"version": "1.3.12"}, "infoblox.nios_modules": {"version": "1.5.0"}, "inspur.ispim": {"version": "2.2.0"}, "inspur.sm": {"version": "2.3.0"}, "junipernetworks.junos": {"version": "5.3.1"}, "kubernetes.core": {"version": "2.4.0"}, "lowlydba.sqlserver": {"version": "2.2.2"}, "microsoft.ad": {"version": "1.4.1"}, "netapp.aws": {"version": "21.7.1"}, "netapp.azure": {"version": "21.10.1"}, "netapp.cloudmanager": {"version": "21.22.1"}, "netapp.elementsw": {"version": "21.7.0"}, "netapp.ontap": {"version": "22.8.3"}, "netapp.storagegrid": {"version": "21.11.1"}, "netapp.um_info": {"version": "21.8.1"}, "netapp_eseries.santricity": {"version": "1.4.0"}, "netbox.netbox": {"version": "3.15.0"}, "ngine_io.cloudstack": {"version": "2.3.0"}, "ngine_io.exoscale": {"version": "1.1.0"}, "openstack.cloud": {"version": "2.2.0"}, "openvswitch.openvswitch": {"version": "2.1.1"}, "ovirt.ovirt": {"version": "3.2.0"}, "purestorage.flasharray": {"version": "1.24.0"}, "purestorage.flashblade": {"version": "1.14.0"}, "purestorage.fusion": {"version": "1.6.0"}, "sensu.sensu_go": {"version": "1.14.0"}, "splunk.es": {"version": "2.1.2"}, "t_systems_mms.icinga_director": {"version": "2.0.1"}, "telekom_mms.icinga_director": {"version": "1.35.0"}, "theforeman.foreman": {"version": "3.15.0"}, "vmware.vmware_rest": {"version": "2.3.1"}, "vultr.cloud": {"version": "1.10.1"}, "vyos.vyos": {"version": "4.1.0"}, "wti.remote": {"version": "1.0.5"}}}
+2024-07-12 11:28:17,040 p=24339 u=amaseghe n=ansible | [WARNING]: Could not match supplied host pattern, ignoring: linux
+
+2024-07-12 11:28:17,040 p=24339 u=amaseghe n=ansible | playbook: site.yml
+2024-07-12 11:28:17,548 p=24344 u=amaseghe n=ansible | {
+    "ansible.builtin.runas": "Run As user",
+    "ansible.builtin.su": "Substitute User",
+    "ansible.builtin.sudo": "Substitute User DO",
+    "ansible.netcommon.enable": "Switch to elevated permissions on a network device",
+    "community.general.doas": "Do As user",
+    "community.general.dzdo": "Centrify's Direct Authorize",
+    "community.general.ksu": "Kerberos substitute user",
+    "community.general.machinectl": "Systemd's machinectl privilege escalation",
+    "community.general.pbrun": "PowerBroker run",
+    "community.general.pfexec": "profile based execution",
+    "community.general.pmrun": "Privilege Manager run",
+    "community.general.sesu": "CA Privileged Access Manager",
+    "community.general.sudosu": "Run tasks using sudo su -",
+    "containers.podman.podman_unshare": "Run tasks using podman unshare"
+}
+2024-07-12 11:28:17,656 p=24074 u=amaseghe n=ansiblelint | Listing 25 violation(s) that are fatal
+2024-07-12 11:39:38,195 p=57879 u=amaseghe n=ansible | {"/home/amaseghe/.local/lib/python3.10/site-packages/ansible_collections": {"amazon.aws": {"version": "7.0.0"}, "ansible.netcommon": {"version": "5.3.0"}, "ansible.posix": {"version": "1.5.4"}, "ansible.utils": {"version": "2.12.0"}, "ansible.windows": {"version": "2.2.0"}, "arista.eos": {"version": "6.2.2"}, "awx.awx": {"version": "23.5.0"}, "azure.azcollection": {"version": "1.19.0"}, "check_point.mgmt": {"version": "5.1.1"}, "chocolatey.chocolatey": {"version": "1.5.1"}, "cisco.aci": {"version": "2.8.0"}, "cisco.asa": {"version": "4.0.3"}, "cisco.dnac": {"version": "6.8.1"}, "cisco.intersight": {"version": "2.0.3"}, "cisco.ios": {"version": "5.3.0"}, "cisco.iosxr": {"version": "6.1.1"}, "cisco.ise": {"version": "2.6.2"}, "cisco.meraki": {"version": "2.16.16"}, "cisco.mso": {"version": "2.5.0"}, "cisco.nxos": {"version": "5.3.0"}, "cisco.ucs": {"version": "1.10.0"}, "cloud.common": {"version": "2.1.4"}, "cloudscale_ch.cloud": {"version": "2.3.1"}, "community.aws": {"version": "7.0.0"}, "community.azure": {"version": "2.0.0"}, "community.ciscosmb": {"version": "1.0.7"}, "community.crypto": {"version": "2.16.1"}, "community.digitalocean": {"version": "1.24.0"}, "community.dns": {"version": "2.6.4"}, "community.docker": {"version": "3.4.11"}, "community.general": {"version": "8.1.0"}, "community.grafana": {"version": "1.6.1"}, "community.hashi_vault": {"version": "6.0.0"}, "community.hrobot": {"version": "1.8.2"}, "community.libvirt": {"version": "1.3.0"}, "community.mongodb": {"version": "1.6.3"}, "community.mysql": {"version": "3.8.0"}, "community.network": {"version": "5.0.2"}, "community.okd": {"version": "2.3.0"}, "community.postgresql": {"version": "3.2.0"}, "community.proxysql": {"version": "1.5.1"}, "community.rabbitmq": {"version": "1.2.3"}, "community.routeros": {"version": "2.11.0"}, "community.sap": {"version": "2.0.0"}, "community.sap_libs": {"version": "1.4.1"}, "community.sops": {"version": "1.6.7"}, "community.vmware": {"version": "4.0.1"}, "community.windows": {"version": "2.1.0"}, "community.zabbix": {"version": "2.2.0"}, "containers.podman": {"version": "1.11.0"}, "cyberark.conjur": {"version": "1.2.2"}, "cyberark.pas": {"version": "1.0.23"}, "dellemc.enterprise_sonic": {"version": "2.2.0"}, "dellemc.openmanage": {"version": "8.5.0"}, "dellemc.powerflex": {"version": "2.1.0"}, "dellemc.unity": {"version": "1.7.1"}, "f5networks.f5_modules": {"version": "1.27.1"}, "fortinet.fortimanager": {"version": "2.3.0"}, "fortinet.fortios": {"version": "2.3.4"}, "frr.frr": {"version": "2.0.2"}, "gluster.gluster": {"version": "1.0.2"}, "google.cloud": {"version": "1.3.0"}, "grafana.grafana": {"version": "2.2.3"}, "hetzner.hcloud": {"version": "2.4.1"}, "hpe.nimble": {"version": "1.1.4"}, "ibm.qradar": {"version": "2.1.0"}, "ibm.spectrum_virtualize": {"version": "2.0.0"}, "ibm.storage_virtualize": {"version": "2.1.0"}, "infinidat.infinibox": {"version": "1.3.12"}, "infoblox.nios_modules": {"version": "1.5.0"}, "inspur.ispim": {"version": "2.2.0"}, "inspur.sm": {"version": "2.3.0"}, "junipernetworks.junos": {"version": "5.3.1"}, "kubernetes.core": {"version": "2.4.0"}, "lowlydba.sqlserver": {"version": "2.2.2"}, "microsoft.ad": {"version": "1.4.1"}, "netapp.aws": {"version": "21.7.1"}, "netapp.azure": {"version": "21.10.1"}, "netapp.cloudmanager": {"version": "21.22.1"}, "netapp.elementsw": {"version": "21.7.0"}, "netapp.ontap": {"version": "22.8.3"}, "netapp.storagegrid": {"version": "21.11.1"}, "netapp.um_info": {"version": "21.8.1"}, "netapp_eseries.santricity": {"version": "1.4.0"}, "netbox.netbox": {"version": "3.15.0"}, "ngine_io.cloudstack": {"version": "2.3.0"}, "ngine_io.exoscale": {"version": "1.1.0"}, "openstack.cloud": {"version": "2.2.0"}, "openvswitch.openvswitch": {"version": "2.1.1"}, "ovirt.ovirt": {"version": "3.2.0"}, "purestorage.flasharray": {"version": "1.24.0"}, "purestorage.flashblade": {"version": "1.14.0"}, "purestorage.fusion": {"version": "1.6.0"}, "sensu.sensu_go": {"version": "1.14.0"}, "splunk.es": {"version": "2.1.2"}, "t_systems_mms.icinga_director": {"version": "2.0.1"}, "telekom_mms.icinga_director": {"version": "1.35.0"}, "theforeman.foreman": {"version": "3.15.0"}, "vmware.vmware_rest": {"version": "2.3.1"}, "vultr.cloud": {"version": "1.10.1"}, "vyos.vyos": {"version": "4.1.0"}, "wti.remote": {"version": "1.0.5"}}}
+2024-07-12 11:39:38,926 p=57929 u=amaseghe n=ansible | {"/home/amaseghe/.local/lib/python3.10/site-packages/ansible_collections": {"amazon.aws": {"version": "7.0.0"}, "ansible.netcommon": {"version": "5.3.0"}, "ansible.posix": {"version": "1.5.4"}, "ansible.utils": {"version": "2.12.0"}, "ansible.windows": {"version": "2.2.0"}, "arista.eos": {"version": "6.2.2"}, "awx.awx": {"version": "23.5.0"}, "azure.azcollection": {"version": "1.19.0"}, "check_point.mgmt": {"version": "5.1.1"}, "chocolatey.chocolatey": {"version": "1.5.1"}, "cisco.aci": {"version": "2.8.0"}, "cisco.asa": {"version": "4.0.3"}, "cisco.dnac": {"version": "6.8.1"}, "cisco.intersight": {"version": "2.0.3"}, "cisco.ios": {"version": "5.3.0"}, "cisco.iosxr": {"version": "6.1.1"}, "cisco.ise": {"version": "2.6.2"}, "cisco.meraki": {"version": "2.16.16"}, "cisco.mso": {"version": "2.5.0"}, "cisco.nxos": {"version": "5.3.0"}, "cisco.ucs": {"version": "1.10.0"}, "cloud.common": {"version": "2.1.4"}, "cloudscale_ch.cloud": {"version": "2.3.1"}, "community.aws": {"version": "7.0.0"}, "community.azure": {"version": "2.0.0"}, "community.ciscosmb": {"version": "1.0.7"}, "community.crypto": {"version": "2.16.1"}, "community.digitalocean": {"version": "1.24.0"}, "community.dns": {"version": "2.6.4"}, "community.docker": {"version": "3.4.11"}, "community.general": {"version": "8.1.0"}, "community.grafana": {"version": "1.6.1"}, "community.hashi_vault": {"version": "6.0.0"}, "community.hrobot": {"version": "1.8.2"}, "community.libvirt": {"version": "1.3.0"}, "community.mongodb": {"version": "1.6.3"}, "community.mysql": {"version": "3.8.0"}, "community.network": {"version": "5.0.2"}, "community.okd": {"version": "2.3.0"}, "community.postgresql": {"version": "3.2.0"}, "community.proxysql": {"version": "1.5.1"}, "community.rabbitmq": {"version": "1.2.3"}, "community.routeros": {"version": "2.11.0"}, "community.sap": {"version": "2.0.0"}, "community.sap_libs": {"version": "1.4.1"}, "community.sops": {"version": "1.6.7"}, "community.vmware": {"version": "4.0.1"}, "community.windows": {"version": "2.1.0"}, "community.zabbix": {"version": "2.2.0"}, "containers.podman": {"version": "1.11.0"}, "cyberark.conjur": {"version": "1.2.2"}, "cyberark.pas": {"version": "1.0.23"}, "dellemc.enterprise_sonic": {"version": "2.2.0"}, "dellemc.openmanage": {"version": "8.5.0"}, "dellemc.powerflex": {"version": "2.1.0"}, "dellemc.unity": {"version": "1.7.1"}, "f5networks.f5_modules": {"version": "1.27.1"}, "fortinet.fortimanager": {"version": "2.3.0"}, "fortinet.fortios": {"version": "2.3.4"}, "frr.frr": {"version": "2.0.2"}, "gluster.gluster": {"version": "1.0.2"}, "google.cloud": {"version": "1.3.0"}, "grafana.grafana": {"version": "2.2.3"}, "hetzner.hcloud": {"version": "2.4.1"}, "hpe.nimble": {"version": "1.1.4"}, "ibm.qradar": {"version": "2.1.0"}, "ibm.spectrum_virtualize": {"version": "2.0.0"}, "ibm.storage_virtualize": {"version": "2.1.0"}, "infinidat.infinibox": {"version": "1.3.12"}, "infoblox.nios_modules": {"version": "1.5.0"}, "inspur.ispim": {"version": "2.2.0"}, "inspur.sm": {"version": "2.3.0"}, "junipernetworks.junos": {"version": "5.3.1"}, "kubernetes.core": {"version": "2.4.0"}, "lowlydba.sqlserver": {"version": "2.2.2"}, "microsoft.ad": {"version": "1.4.1"}, "netapp.aws": {"version": "21.7.1"}, "netapp.azure": {"version": "21.10.1"}, "netapp.cloudmanager": {"version": "21.22.1"}, "netapp.elementsw": {"version": "21.7.0"}, "netapp.ontap": {"version": "22.8.3"}, "netapp.storagegrid": {"version": "21.11.1"}, "netapp.um_info": {"version": "21.8.1"}, "netapp_eseries.santricity": {"version": "1.4.0"}, "netbox.netbox": {"version": "3.15.0"}, "ngine_io.cloudstack": {"version": "2.3.0"}, "ngine_io.exoscale": {"version": "1.1.0"}, "openstack.cloud": {"version": "2.2.0"}, "openvswitch.openvswitch": {"version": "2.1.1"}, "ovirt.ovirt": {"version": "3.2.0"}, "purestorage.flasharray": {"version": "1.24.0"}, "purestorage.flashblade": {"version": "1.14.0"}, "purestorage.fusion": {"version": "1.6.0"}, "sensu.sensu_go": {"version": "1.14.0"}, "splunk.es": {"version": "2.1.2"}, "t_systems_mms.icinga_director": {"version": "2.0.1"}, "telekom_mms.icinga_director": {"version": "1.35.0"}, "theforeman.foreman": {"version": "3.15.0"}, "vmware.vmware_rest": {"version": "2.3.1"}, "vultr.cloud": {"version": "1.10.1"}, "vyos.vyos": {"version": "4.1.0"}, "wti.remote": {"version": "1.0.5"}}}
+2024-07-12 11:39:39,440 p=57946 u=amaseghe n=ansible | playbook: /tmp/playhwjj28mi.yml
+2024-07-12 11:39:39,446 p=57945 u=amaseghe n=ansible | playbook: roles/patching/tests/test.yml
+2024-07-12 11:39:39,451 p=57944 u=amaseghe n=ansible | [WARNING]: Could not match supplied host pattern, ignoring: linux
+
+2024-07-12 11:39:39,452 p=57944 u=amaseghe n=ansible | playbook: site.yml
+2024-07-12 11:39:39,600 p=57943 u=amaseghe n=ansible | playbook: roles/environment/tests/test.yml
+2024-07-12 11:39:39,601 p=57947 u=amaseghe n=ansible | playbook: /tmp/play_pfmeztu.yml
+2024-07-12 11:39:40,067 p=57973 u=amaseghe n=ansible | {
+    "ansible.builtin.runas": "Run As user",
+    "ansible.builtin.su": "Substitute User",
+    "ansible.builtin.sudo": "Substitute User DO",
+    "ansible.netcommon.enable": "Switch to elevated permissions on a network device",
+    "community.general.doas": "Do As user",
+    "community.general.dzdo": "Centrify's Direct Authorize",
+    "community.general.ksu": "Kerberos substitute user",
+    "community.general.machinectl": "Systemd's machinectl privilege escalation",
+    "community.general.pbrun": "PowerBroker run",
+    "community.general.pfexec": "profile based execution",
+    "community.general.pmrun": "Privilege Manager run",
+    "community.general.sesu": "CA Privileged Access Manager",
+    "community.general.sudosu": "Run tasks using sudo su -",
+    "containers.podman.podman_unshare": "Run tasks using podman unshare"
+}
+2024-07-12 11:39:40,189 p=57853 u=amaseghe n=ansiblelint | Listing 41 violation(s) that are fatal
+2024-07-12 11:39:55,465 p=58668 u=amaseghe n=ansible | {"/home/amaseghe/.local/lib/python3.10/site-packages/ansible_collections": {"amazon.aws": {"version": "7.0.0"}, "ansible.netcommon": {"version": "5.3.0"}, "ansible.posix": {"version": "1.5.4"}, "ansible.utils": {"version": "2.12.0"}, "ansible.windows": {"version": "2.2.0"}, "arista.eos": {"version": "6.2.2"}, "awx.awx": {"version": "23.5.0"}, "azure.azcollection": {"version": "1.19.0"}, "check_point.mgmt": {"version": "5.1.1"}, "chocolatey.chocolatey": {"version": "1.5.1"}, "cisco.aci": {"version": "2.8.0"}, "cisco.asa": {"version": "4.0.3"}, "cisco.dnac": {"version": "6.8.1"}, "cisco.intersight": {"version": "2.0.3"}, "cisco.ios": {"version": "5.3.0"}, "cisco.iosxr": {"version": "6.1.1"}, "cisco.ise": {"version": "2.6.2"}, "cisco.meraki": {"version": "2.16.16"}, "cisco.mso": {"version": "2.5.0"}, "cisco.nxos": {"version": "5.3.0"}, "cisco.ucs": {"version": "1.10.0"}, "cloud.common": {"version": "2.1.4"}, "cloudscale_ch.cloud": {"version": "2.3.1"}, "community.aws": {"version": "7.0.0"}, "community.azure": {"version": "2.0.0"}, "community.ciscosmb": {"version": "1.0.7"}, "community.crypto": {"version": "2.16.1"}, "community.digitalocean": {"version": "1.24.0"}, "community.dns": {"version": "2.6.4"}, "community.docker": {"version": "3.4.11"}, "community.general": {"version": "8.1.0"}, "community.grafana": {"version": "1.6.1"}, "community.hashi_vault": {"version": "6.0.0"}, "community.hrobot": {"version": "1.8.2"}, "community.libvirt": {"version": "1.3.0"}, "community.mongodb": {"version": "1.6.3"}, "community.mysql": {"version": "3.8.0"}, "community.network": {"version": "5.0.2"}, "community.okd": {"version": "2.3.0"}, "community.postgresql": {"version": "3.2.0"}, "community.proxysql": {"version": "1.5.1"}, "community.rabbitmq": {"version": "1.2.3"}, "community.routeros": {"version": "2.11.0"}, "community.sap": {"version": "2.0.0"}, "community.sap_libs": {"version": "1.4.1"}, "community.sops": {"version": "1.6.7"}, "community.vmware": {"version": "4.0.1"}, "community.windows": {"version": "2.1.0"}, "community.zabbix": {"version": "2.2.0"}, "containers.podman": {"version": "1.11.0"}, "cyberark.conjur": {"version": "1.2.2"}, "cyberark.pas": {"version": "1.0.23"}, "dellemc.enterprise_sonic": {"version": "2.2.0"}, "dellemc.openmanage": {"version": "8.5.0"}, "dellemc.powerflex": {"version": "2.1.0"}, "dellemc.unity": {"version": "1.7.1"}, "f5networks.f5_modules": {"version": "1.27.1"}, "fortinet.fortimanager": {"version": "2.3.0"}, "fortinet.fortios": {"version": "2.3.4"}, "frr.frr": {"version": "2.0.2"}, "gluster.gluster": {"version": "1.0.2"}, "google.cloud": {"version": "1.3.0"}, "grafana.grafana": {"version": "2.2.3"}, "hetzner.hcloud": {"version": "2.4.1"}, "hpe.nimble": {"version": "1.1.4"}, "ibm.qradar": {"version": "2.1.0"}, "ibm.spectrum_virtualize": {"version": "2.0.0"}, "ibm.storage_virtualize": {"version": "2.1.0"}, "infinidat.infinibox": {"version": "1.3.12"}, "infoblox.nios_modules": {"version": "1.5.0"}, "inspur.ispim": {"version": "2.2.0"}, "inspur.sm": {"version": "2.3.0"}, "junipernetworks.junos": {"version": "5.3.1"}, "kubernetes.core": {"version": "2.4.0"}, "lowlydba.sqlserver": {"version": "2.2.2"}, "microsoft.ad": {"version": "1.4.1"}, "netapp.aws": {"version": "21.7.1"}, "netapp.azure": {"version": "21.10.1"}, "netapp.cloudmanager": {"version": "21.22.1"}, "netapp.elementsw": {"version": "21.7.0"}, "netapp.ontap": {"version": "22.8.3"}, "netapp.storagegrid": {"version": "21.11.1"}, "netapp.um_info": {"version": "21.8.1"}, "netapp_eseries.santricity": {"version": "1.4.0"}, "netbox.netbox": {"version": "3.15.0"}, "ngine_io.cloudstack": {"version": "2.3.0"}, "ngine_io.exoscale": {"version": "1.1.0"}, "openstack.cloud": {"version": "2.2.0"}, "openvswitch.openvswitch": {"version": "2.1.1"}, "ovirt.ovirt": {"version": "3.2.0"}, "purestorage.flasharray": {"version": "1.24.0"}, "purestorage.flashblade": {"version": "1.14.0"}, "purestorage.fusion": {"version": "1.6.0"}, "sensu.sensu_go": {"version": "1.14.0"}, "splunk.es": {"version": "2.1.2"}, "t_systems_mms.icinga_director": {"version": "2.0.1"}, "telekom_mms.icinga_director": {"version": "1.35.0"}, "theforeman.foreman": {"version": "3.15.0"}, "vmware.vmware_rest": {"version": "2.3.1"}, "vultr.cloud": {"version": "1.10.1"}, "vyos.vyos": {"version": "4.1.0"}, "wti.remote": {"version": "1.0.5"}}}
+2024-07-12 11:39:56,227 p=58725 u=amaseghe n=ansible | {"/home/amaseghe/.local/lib/python3.10/site-packages/ansible_collections": {"amazon.aws": {"version": "7.0.0"}, "ansible.netcommon": {"version": "5.3.0"}, "ansible.posix": {"version": "1.5.4"}, "ansible.utils": {"version": "2.12.0"}, "ansible.windows": {"version": "2.2.0"}, "arista.eos": {"version": "6.2.2"}, "awx.awx": {"version": "23.5.0"}, "azure.azcollection": {"version": "1.19.0"}, "check_point.mgmt": {"version": "5.1.1"}, "chocolatey.chocolatey": {"version": "1.5.1"}, "cisco.aci": {"version": "2.8.0"}, "cisco.asa": {"version": "4.0.3"}, "cisco.dnac": {"version": "6.8.1"}, "cisco.intersight": {"version": "2.0.3"}, "cisco.ios": {"version": "5.3.0"}, "cisco.iosxr": {"version": "6.1.1"}, "cisco.ise": {"version": "2.6.2"}, "cisco.meraki": {"version": "2.16.16"}, "cisco.mso": {"version": "2.5.0"}, "cisco.nxos": {"version": "5.3.0"}, "cisco.ucs": {"version": "1.10.0"}, "cloud.common": {"version": "2.1.4"}, "cloudscale_ch.cloud": {"version": "2.3.1"}, "community.aws": {"version": "7.0.0"}, "community.azure": {"version": "2.0.0"}, "community.ciscosmb": {"version": "1.0.7"}, "community.crypto": {"version": "2.16.1"}, "community.digitalocean": {"version": "1.24.0"}, "community.dns": {"version": "2.6.4"}, "community.docker": {"version": "3.4.11"}, "community.general": {"version": "8.1.0"}, "community.grafana": {"version": "1.6.1"}, "community.hashi_vault": {"version": "6.0.0"}, "community.hrobot": {"version": "1.8.2"}, "community.libvirt": {"version": "1.3.0"}, "community.mongodb": {"version": "1.6.3"}, "community.mysql": {"version": "3.8.0"}, "community.network": {"version": "5.0.2"}, "community.okd": {"version": "2.3.0"}, "community.postgresql": {"version": "3.2.0"}, "community.proxysql": {"version": "1.5.1"}, "community.rabbitmq": {"version": "1.2.3"}, "community.routeros": {"version": "2.11.0"}, "community.sap": {"version": "2.0.0"}, "community.sap_libs": {"version": "1.4.1"}, "community.sops": {"version": "1.6.7"}, "community.vmware": {"version": "4.0.1"}, "community.windows": {"version": "2.1.0"}, "community.zabbix": {"version": "2.2.0"}, "containers.podman": {"version": "1.11.0"}, "cyberark.conjur": {"version": "1.2.2"}, "cyberark.pas": {"version": "1.0.23"}, "dellemc.enterprise_sonic": {"version": "2.2.0"}, "dellemc.openmanage": {"version": "8.5.0"}, "dellemc.powerflex": {"version": "2.1.0"}, "dellemc.unity": {"version": "1.7.1"}, "f5networks.f5_modules": {"version": "1.27.1"}, "fortinet.fortimanager": {"version": "2.3.0"}, "fortinet.fortios": {"version": "2.3.4"}, "frr.frr": {"version": "2.0.2"}, "gluster.gluster": {"version": "1.0.2"}, "google.cloud": {"version": "1.3.0"}, "grafana.grafana": {"version": "2.2.3"}, "hetzner.hcloud": {"version": "2.4.1"}, "hpe.nimble": {"version": "1.1.4"}, "ibm.qradar": {"version": "2.1.0"}, "ibm.spectrum_virtualize": {"version": "2.0.0"}, "ibm.storage_virtualize": {"version": "2.1.0"}, "infinidat.infinibox": {"version": "1.3.12"}, "infoblox.nios_modules": {"version": "1.5.0"}, "inspur.ispim": {"version": "2.2.0"}, "inspur.sm": {"version": "2.3.0"}, "junipernetworks.junos": {"version": "5.3.1"}, "kubernetes.core": {"version": "2.4.0"}, "lowlydba.sqlserver": {"version": "2.2.2"}, "microsoft.ad": {"version": "1.4.1"}, "netapp.aws": {"version": "21.7.1"}, "netapp.azure": {"version": "21.10.1"}, "netapp.cloudmanager": {"version": "21.22.1"}, "netapp.elementsw": {"version": "21.7.0"}, "netapp.ontap": {"version": "22.8.3"}, "netapp.storagegrid": {"version": "21.11.1"}, "netapp.um_info": {"version": "21.8.1"}, "netapp_eseries.santricity": {"version": "1.4.0"}, "netbox.netbox": {"version": "3.15.0"}, "ngine_io.cloudstack": {"version": "2.3.0"}, "ngine_io.exoscale": {"version": "1.1.0"}, "openstack.cloud": {"version": "2.2.0"}, "openvswitch.openvswitch": {"version": "2.1.1"}, "ovirt.ovirt": {"version": "3.2.0"}, "purestorage.flasharray": {"version": "1.24.0"}, "purestorage.flashblade": {"version": "1.14.0"}, "purestorage.fusion": {"version": "1.6.0"}, "sensu.sensu_go": {"version": "1.14.0"}, "splunk.es": {"version": "2.1.2"}, "t_systems_mms.icinga_director": {"version": "2.0.1"}, "telekom_mms.icinga_director": {"version": "1.35.0"}, "theforeman.foreman": {"version": "3.15.0"}, "vmware.vmware_rest": {"version": "2.3.1"}, "vultr.cloud": {"version": "1.10.1"}, "vyos.vyos": {"version": "4.1.0"}, "wti.remote": {"version": "1.0.5"}}}
+2024-07-12 11:39:56,545 p=58787 u=amaseghe n=ansible | [WARNING]: Could not match supplied host pattern, ignoring: linux
+
+2024-07-12 11:39:56,545 p=58787 u=amaseghe n=ansible | playbook: site.yml
+2024-07-12 11:39:56,986 p=58793 u=amaseghe n=ansible | {
+    "ansible.builtin.runas": "Run As user",
+    "ansible.builtin.su": "Substitute User",
+    "ansible.builtin.sudo": "Substitute User DO",
+    "ansible.netcommon.enable": "Switch to elevated permissions on a network device",
+    "community.general.doas": "Do As user",
+    "community.general.dzdo": "Centrify's Direct Authorize",
+    "community.general.ksu": "Kerberos substitute user",
+    "community.general.machinectl": "Systemd's machinectl privilege escalation",
+    "community.general.pbrun": "PowerBroker run",
+    "community.general.pfexec": "profile based execution",
+    "community.general.pmrun": "Privilege Manager run",
+    "community.general.sesu": "CA Privileged Access Manager",
+    "community.general.sudosu": "Run tasks using sudo su -",
+    "containers.podman.podman_unshare": "Run tasks using podman unshare"
+}
+2024-07-12 11:39:57,073 p=58639 u=amaseghe n=ansiblelint | Listing 25 violation(s) that are fatal
+2024-07-12 11:42:20,535 p=65410 u=amaseghe n=ansible | {"/home/amaseghe/.local/lib/python3.10/site-packages/ansible_collections": {"amazon.aws": {"version": "7.0.0"}, "ansible.netcommon": {"version": "5.3.0"}, "ansible.posix": {"version": "1.5.4"}, "ansible.utils": {"version": "2.12.0"}, "ansible.windows": {"version": "2.2.0"}, "arista.eos": {"version": "6.2.2"}, "awx.awx": {"version": "23.5.0"}, "azure.azcollection": {"version": "1.19.0"}, "check_point.mgmt": {"version": "5.1.1"}, "chocolatey.chocolatey": {"version": "1.5.1"}, "cisco.aci": {"version": "2.8.0"}, "cisco.asa": {"version": "4.0.3"}, "cisco.dnac": {"version": "6.8.1"}, "cisco.intersight": {"version": "2.0.3"}, "cisco.ios": {"version": "5.3.0"}, "cisco.iosxr": {"version": "6.1.1"}, "cisco.ise": {"version": "2.6.2"}, "cisco.meraki": {"version": "2.16.16"}, "cisco.mso": {"version": "2.5.0"}, "cisco.nxos": {"version": "5.3.0"}, "cisco.ucs": {"version": "1.10.0"}, "cloud.common": {"version": "2.1.4"}, "cloudscale_ch.cloud": {"version": "2.3.1"}, "community.aws": {"version": "7.0.0"}, "community.azure": {"version": "2.0.0"}, "community.ciscosmb": {"version": "1.0.7"}, "community.crypto": {"version": "2.16.1"}, "community.digitalocean": {"version": "1.24.0"}, "community.dns": {"version": "2.6.4"}, "community.docker": {"version": "3.4.11"}, "community.general": {"version": "8.1.0"}, "community.grafana": {"version": "1.6.1"}, "community.hashi_vault": {"version": "6.0.0"}, "community.hrobot": {"version": "1.8.2"}, "community.libvirt": {"version": "1.3.0"}, "community.mongodb": {"version": "1.6.3"}, "community.mysql": {"version": "3.8.0"}, "community.network": {"version": "5.0.2"}, "community.okd": {"version": "2.3.0"}, "community.postgresql": {"version": "3.2.0"}, "community.proxysql": {"version": "1.5.1"}, "community.rabbitmq": {"version": "1.2.3"}, "community.routeros": {"version": "2.11.0"}, "community.sap": {"version": "2.0.0"}, "community.sap_libs": {"version": "1.4.1"}, "community.sops": {"version": "1.6.7"}, "community.vmware": {"version": "4.0.1"}, "community.windows": {"version": "2.1.0"}, "community.zabbix": {"version": "2.2.0"}, "containers.podman": {"version": "1.11.0"}, "cyberark.conjur": {"version": "1.2.2"}, "cyberark.pas": {"version": "1.0.23"}, "dellemc.enterprise_sonic": {"version": "2.2.0"}, "dellemc.openmanage": {"version": "8.5.0"}, "dellemc.powerflex": {"version": "2.1.0"}, "dellemc.unity": {"version": "1.7.1"}, "f5networks.f5_modules": {"version": "1.27.1"}, "fortinet.fortimanager": {"version": "2.3.0"}, "fortinet.fortios": {"version": "2.3.4"}, "frr.frr": {"version": "2.0.2"}, "gluster.gluster": {"version": "1.0.2"}, "google.cloud": {"version": "1.3.0"}, "grafana.grafana": {"version": "2.2.3"}, "hetzner.hcloud": {"version": "2.4.1"}, "hpe.nimble": {"version": "1.1.4"}, "ibm.qradar": {"version": "2.1.0"}, "ibm.spectrum_virtualize": {"version": "2.0.0"}, "ibm.storage_virtualize": {"version": "2.1.0"}, "infinidat.infinibox": {"version": "1.3.12"}, "infoblox.nios_modules": {"version": "1.5.0"}, "inspur.ispim": {"version": "2.2.0"}, "inspur.sm": {"version": "2.3.0"}, "junipernetworks.junos": {"version": "5.3.1"}, "kubernetes.core": {"version": "2.4.0"}, "lowlydba.sqlserver": {"version": "2.2.2"}, "microsoft.ad": {"version": "1.4.1"}, "netapp.aws": {"version": "21.7.1"}, "netapp.azure": {"version": "21.10.1"}, "netapp.cloudmanager": {"version": "21.22.1"}, "netapp.elementsw": {"version": "21.7.0"}, "netapp.ontap": {"version": "22.8.3"}, "netapp.storagegrid": {"version": "21.11.1"}, "netapp.um_info": {"version": "21.8.1"}, "netapp_eseries.santricity": {"version": "1.4.0"}, "netbox.netbox": {"version": "3.15.0"}, "ngine_io.cloudstack": {"version": "2.3.0"}, "ngine_io.exoscale": {"version": "1.1.0"}, "openstack.cloud": {"version": "2.2.0"}, "openvswitch.openvswitch": {"version": "2.1.1"}, "ovirt.ovirt": {"version": "3.2.0"}, "purestorage.flasharray": {"version": "1.24.0"}, "purestorage.flashblade": {"version": "1.14.0"}, "purestorage.fusion": {"version": "1.6.0"}, "sensu.sensu_go": {"version": "1.14.0"}, "splunk.es": {"version": "2.1.2"}, "t_systems_mms.icinga_director": {"version": "2.0.1"}, "telekom_mms.icinga_director": {"version": "1.35.0"}, "theforeman.foreman": {"version": "3.15.0"}, "vmware.vmware_rest": {"version": "2.3.1"}, "vultr.cloud": {"version": "1.10.1"}, "vyos.vyos": {"version": "4.1.0"}, "wti.remote": {"version": "1.0.5"}}}
+2024-07-12 11:42:21,253 p=65426 u=amaseghe n=ansible | {"/home/amaseghe/.local/lib/python3.10/site-packages/ansible_collections": {"amazon.aws": {"version": "7.0.0"}, "ansible.netcommon": {"version": "5.3.0"}, "ansible.posix": {"version": "1.5.4"}, "ansible.utils": {"version": "2.12.0"}, "ansible.windows": {"version": "2.2.0"}, "arista.eos": {"version": "6.2.2"}, "awx.awx": {"version": "23.5.0"}, "azure.azcollection": {"version": "1.19.0"}, "check_point.mgmt": {"version": "5.1.1"}, "chocolatey.chocolatey": {"version": "1.5.1"}, "cisco.aci": {"version": "2.8.0"}, "cisco.asa": {"version": "4.0.3"}, "cisco.dnac": {"version": "6.8.1"}, "cisco.intersight": {"version": "2.0.3"}, "cisco.ios": {"version": "5.3.0"}, "cisco.iosxr": {"version": "6.1.1"}, "cisco.ise": {"version": "2.6.2"}, "cisco.meraki": {"version": "2.16.16"}, "cisco.mso": {"version": "2.5.0"}, "cisco.nxos": {"version": "5.3.0"}, "cisco.ucs": {"version": "1.10.0"}, "cloud.common": {"version": "2.1.4"}, "cloudscale_ch.cloud": {"version": "2.3.1"}, "community.aws": {"version": "7.0.0"}, "community.azure": {"version": "2.0.0"}, "community.ciscosmb": {"version": "1.0.7"}, "community.crypto": {"version": "2.16.1"}, "community.digitalocean": {"version": "1.24.0"}, "community.dns": {"version": "2.6.4"}, "community.docker": {"version": "3.4.11"}, "community.general": {"version": "8.1.0"}, "community.grafana": {"version": "1.6.1"}, "community.hashi_vault": {"version": "6.0.0"}, "community.hrobot": {"version": "1.8.2"}, "community.libvirt": {"version": "1.3.0"}, "community.mongodb": {"version": "1.6.3"}, "community.mysql": {"version": "3.8.0"}, "community.network": {"version": "5.0.2"}, "community.okd": {"version": "2.3.0"}, "community.postgresql": {"version": "3.2.0"}, "community.proxysql": {"version": "1.5.1"}, "community.rabbitmq": {"version": "1.2.3"}, "community.routeros": {"version": "2.11.0"}, "community.sap": {"version": "2.0.0"}, "community.sap_libs": {"version": "1.4.1"}, "community.sops": {"version": "1.6.7"}, "community.vmware": {"version": "4.0.1"}, "community.windows": {"version": "2.1.0"}, "community.zabbix": {"version": "2.2.0"}, "containers.podman": {"version": "1.11.0"}, "cyberark.conjur": {"version": "1.2.2"}, "cyberark.pas": {"version": "1.0.23"}, "dellemc.enterprise_sonic": {"version": "2.2.0"}, "dellemc.openmanage": {"version": "8.5.0"}, "dellemc.powerflex": {"version": "2.1.0"}, "dellemc.unity": {"version": "1.7.1"}, "f5networks.f5_modules": {"version": "1.27.1"}, "fortinet.fortimanager": {"version": "2.3.0"}, "fortinet.fortios": {"version": "2.3.4"}, "frr.frr": {"version": "2.0.2"}, "gluster.gluster": {"version": "1.0.2"}, "google.cloud": {"version": "1.3.0"}, "grafana.grafana": {"version": "2.2.3"}, "hetzner.hcloud": {"version": "2.4.1"}, "hpe.nimble": {"version": "1.1.4"}, "ibm.qradar": {"version": "2.1.0"}, "ibm.spectrum_virtualize": {"version": "2.0.0"}, "ibm.storage_virtualize": {"version": "2.1.0"}, "infinidat.infinibox": {"version": "1.3.12"}, "infoblox.nios_modules": {"version": "1.5.0"}, "inspur.ispim": {"version": "2.2.0"}, "inspur.sm": {"version": "2.3.0"}, "junipernetworks.junos": {"version": "5.3.1"}, "kubernetes.core": {"version": "2.4.0"}, "lowlydba.sqlserver": {"version": "2.2.2"}, "microsoft.ad": {"version": "1.4.1"}, "netapp.aws": {"version": "21.7.1"}, "netapp.azure": {"version": "21.10.1"}, "netapp.cloudmanager": {"version": "21.22.1"}, "netapp.elementsw": {"version": "21.7.0"}, "netapp.ontap": {"version": "22.8.3"}, "netapp.storagegrid": {"version": "21.11.1"}, "netapp.um_info": {"version": "21.8.1"}, "netapp_eseries.santricity": {"version": "1.4.0"}, "netbox.netbox": {"version": "3.15.0"}, "ngine_io.cloudstack": {"version": "2.3.0"}, "ngine_io.exoscale": {"version": "1.1.0"}, "openstack.cloud": {"version": "2.2.0"}, "openvswitch.openvswitch": {"version": "2.1.1"}, "ovirt.ovirt": {"version": "3.2.0"}, "purestorage.flasharray": {"version": "1.24.0"}, "purestorage.flashblade": {"version": "1.14.0"}, "purestorage.fusion": {"version": "1.6.0"}, "sensu.sensu_go": {"version": "1.14.0"}, "splunk.es": {"version": "2.1.2"}, "t_systems_mms.icinga_director": {"version": "2.0.1"}, "telekom_mms.icinga_director": {"version": "1.35.0"}, "theforeman.foreman": {"version": "3.15.0"}, "vmware.vmware_rest": {"version": "2.3.1"}, "vultr.cloud": {"version": "1.10.1"}, "vyos.vyos": {"version": "4.1.0"}, "wti.remote": {"version": "1.0.5"}}}
+2024-07-12 11:42:21,573 p=65448 u=amaseghe n=ansible | [WARNING]: Could not match supplied host pattern, ignoring: linux
+
+2024-07-12 11:42:21,574 p=65448 u=amaseghe n=ansible | playbook: site.yml
+2024-07-12 11:42:22,067 p=65454 u=amaseghe n=ansible | {
+    "ansible.builtin.runas": "Run As user",
+    "ansible.builtin.su": "Substitute User",
+    "ansible.builtin.sudo": "Substitute User DO",
+    "ansible.netcommon.enable": "Switch to elevated permissions on a network device",
+    "community.general.doas": "Do As user",
+    "community.general.dzdo": "Centrify's Direct Authorize",
+    "community.general.ksu": "Kerberos substitute user",
+    "community.general.machinectl": "Systemd's machinectl privilege escalation",
+    "community.general.pbrun": "PowerBroker run",
+    "community.general.pfexec": "profile based execution",
+    "community.general.pmrun": "Privilege Manager run",
+    "community.general.sesu": "CA Privileged Access Manager",
+    "community.general.sudosu": "Run tasks using sudo su -",
+    "containers.podman.podman_unshare": "Run tasks using podman unshare"
+}
+2024-07-12 11:42:22,124 p=65378 u=amaseghe n=ansiblelint | Listing 25 violation(s) that are fatal
+2024-07-12 11:42:34,992 p=65560 u=amaseghe n=ansible | PLAY [Patching of Linux boxes] *******************************************************************************************************
+2024-07-12 11:42:34,997 p=65560 u=amaseghe n=ansible | TASK [Gathering Facts] ***************************************************************************************************************
+2024-07-12 11:42:37,004 p=65560 u=amaseghe n=ansible | ok: [192.168.1.100]
+2024-07-12 11:42:37,259 p=65560 u=amaseghe n=ansible | ok: [192.168.1.99]
+2024-07-12 11:42:37,274 p=65560 u=amaseghe n=ansible | TASK [include vars] ******************************************************************************************************************
+2024-07-12 11:42:37,286 p=65560 u=amaseghe n=ansible | ok: [192.168.1.99]
+2024-07-12 11:42:37,292 p=65560 u=amaseghe n=ansible | ok: [192.168.1.100]
+2024-07-12 11:42:37,296 p=65560 u=amaseghe n=ansible | TASK [environment : Print dates] *****************************************************************************************************
+2024-07-12 11:42:37,312 p=65560 u=amaseghe n=ansible | ok: [192.168.1.99] => {
+    "msg": [
+        "date : 2024-07-11",
+        "time : 21:42:36"
+    ]
+}
+2024-07-12 11:42:37,321 p=65560 u=amaseghe n=ansible | ok: [192.168.1.100] => {
+    "msg": [
+        "date : 2024-07-12",
+        "time : 11:42:36"
+    ]
+}
+2024-07-12 11:42:37,326 p=65560 u=amaseghe n=ansible | TASK [environment : debug] ***********************************************************************************************************
+2024-07-12 11:42:37,339 p=65560 u=amaseghe n=ansible | ok: [192.168.1.99] => {
+    "msg": [
+        "distribution : RedHat",
+        "distribution_major_version : 9"
+    ]
+}
+2024-07-12 11:42:37,348 p=65560 u=amaseghe n=ansible | ok: [192.168.1.100] => {
+    "msg": [
+        "distribution : Ubuntu",
+        "distribution_major_version : 22"
+    ]
+}
+2024-07-12 11:42:37,367 p=65560 u=amaseghe n=ansible | TASK [patching : patch - RedHat - Update all packages to their latest version] *******************************************************
+2024-07-12 11:42:37,394 p=65560 u=amaseghe n=ansible | skipping: [192.168.1.100]
+2024-07-12 11:42:42,069 p=65560 u=amaseghe n=ansible | ok: [192.168.1.99]
+2024-07-12 11:42:42,079 p=65560 u=amaseghe n=ansible | TASK [patching : patch - RedHat - Remove dependencies that are no longer required and purge their configuration files] ***************
+2024-07-12 11:42:42,101 p=65560 u=amaseghe n=ansible | skipping: [192.168.1.100]
+2024-07-12 11:42:45,635 p=65560 u=amaseghe n=ansible | ok: [192.168.1.99]
+2024-07-12 11:42:45,639 p=65560 u=amaseghe n=ansible | TASK [patching : patch - Ubuntu - Update all packages to their latest version] *******************************************************
+2024-07-12 11:42:45,648 p=65560 u=amaseghe n=ansible | skipping: [192.168.1.99]
+2024-07-12 11:42:47,208 p=65560 u=amaseghe n=ansible | changed: [192.168.1.100]
+2024-07-12 11:42:47,212 p=65560 u=amaseghe n=ansible | TASK [patching : patch - Ubuntu - Remove dependencies that are no longer required and purge their configuration files] ***************
+2024-07-12 11:42:47,226 p=65560 u=amaseghe n=ansible | skipping: [192.168.1.99]
+2024-07-12 11:42:48,559 p=65560 u=amaseghe n=ansible | ok: [192.168.1.100]
+2024-07-12 11:42:48,592 p=65560 u=amaseghe n=ansible | TASK [debug] *************************************************************************************************************************
+2024-07-12 11:42:48,603 p=65560 u=amaseghe n=ansible | ok: [192.168.1.99] => {
+    "msg": [
+        "192.168.1.99 packages updated successfully "
+    ]
+}
+2024-07-12 11:42:48,610 p=65560 u=amaseghe n=ansible | ok: [192.168.1.100] => {
+    "msg": [
+        "192.168.1.100 packages updated successfully "
+    ]
+}
+2024-07-12 11:42:48,632 p=65560 u=amaseghe n=ansible | PLAY RECAP ***************************************************************************************************************************
+2024-07-12 11:42:48,632 p=65560 u=amaseghe n=ansible | 192.168.1.100              : ok=7    changed=1    unreachable=0    failed=0    skipped=2    rescued=0    ignored=0   
+2024-07-12 11:42:48,632 p=65560 u=amaseghe n=ansible | 192.168.1.99               : ok=7    changed=0    unreachable=0    failed=0    skipped=2    rescued=0    ignored=0   
+2024-07-12 11:43:43,866 p=69844 u=amaseghe n=ansible | {"/home/amaseghe/.local/lib/python3.10/site-packages/ansible_collections": {"amazon.aws": {"version": "7.0.0"}, "ansible.netcommon": {"version": "5.3.0"}, "ansible.posix": {"version": "1.5.4"}, "ansible.utils": {"version": "2.12.0"}, "ansible.windows": {"version": "2.2.0"}, "arista.eos": {"version": "6.2.2"}, "awx.awx": {"version": "23.5.0"}, "azure.azcollection": {"version": "1.19.0"}, "check_point.mgmt": {"version": "5.1.1"}, "chocolatey.chocolatey": {"version": "1.5.1"}, "cisco.aci": {"version": "2.8.0"}, "cisco.asa": {"version": "4.0.3"}, "cisco.dnac": {"version": "6.8.1"}, "cisco.intersight": {"version": "2.0.3"}, "cisco.ios": {"version": "5.3.0"}, "cisco.iosxr": {"version": "6.1.1"}, "cisco.ise": {"version": "2.6.2"}, "cisco.meraki": {"version": "2.16.16"}, "cisco.mso": {"version": "2.5.0"}, "cisco.nxos": {"version": "5.3.0"}, "cisco.ucs": {"version": "1.10.0"}, "cloud.common": {"version": "2.1.4"}, "cloudscale_ch.cloud": {"version": "2.3.1"}, "community.aws": {"version": "7.0.0"}, "community.azure": {"version": "2.0.0"}, "community.ciscosmb": {"version": "1.0.7"}, "community.crypto": {"version": "2.16.1"}, "community.digitalocean": {"version": "1.24.0"}, "community.dns": {"version": "2.6.4"}, "community.docker": {"version": "3.4.11"}, "community.general": {"version": "8.1.0"}, "community.grafana": {"version": "1.6.1"}, "community.hashi_vault": {"version": "6.0.0"}, "community.hrobot": {"version": "1.8.2"}, "community.libvirt": {"version": "1.3.0"}, "community.mongodb": {"version": "1.6.3"}, "community.mysql": {"version": "3.8.0"}, "community.network": {"version": "5.0.2"}, "community.okd": {"version": "2.3.0"}, "community.postgresql": {"version": "3.2.0"}, "community.proxysql": {"version": "1.5.1"}, "community.rabbitmq": {"version": "1.2.3"}, "community.routeros": {"version": "2.11.0"}, "community.sap": {"version": "2.0.0"}, "community.sap_libs": {"version": "1.4.1"}, "community.sops": {"version": "1.6.7"}, "community.vmware": {"version": "4.0.1"}, "community.windows": {"version": "2.1.0"}, "community.zabbix": {"version": "2.2.0"}, "containers.podman": {"version": "1.11.0"}, "cyberark.conjur": {"version": "1.2.2"}, "cyberark.pas": {"version": "1.0.23"}, "dellemc.enterprise_sonic": {"version": "2.2.0"}, "dellemc.openmanage": {"version": "8.5.0"}, "dellemc.powerflex": {"version": "2.1.0"}, "dellemc.unity": {"version": "1.7.1"}, "f5networks.f5_modules": {"version": "1.27.1"}, "fortinet.fortimanager": {"version": "2.3.0"}, "fortinet.fortios": {"version": "2.3.4"}, "frr.frr": {"version": "2.0.2"}, "gluster.gluster": {"version": "1.0.2"}, "google.cloud": {"version": "1.3.0"}, "grafana.grafana": {"version": "2.2.3"}, "hetzner.hcloud": {"version": "2.4.1"}, "hpe.nimble": {"version": "1.1.4"}, "ibm.qradar": {"version": "2.1.0"}, "ibm.spectrum_virtualize": {"version": "2.0.0"}, "ibm.storage_virtualize": {"version": "2.1.0"}, "infinidat.infinibox": {"version": "1.3.12"}, "infoblox.nios_modules": {"version": "1.5.0"}, "inspur.ispim": {"version": "2.2.0"}, "inspur.sm": {"version": "2.3.0"}, "junipernetworks.junos": {"version": "5.3.1"}, "kubernetes.core": {"version": "2.4.0"}, "lowlydba.sqlserver": {"version": "2.2.2"}, "microsoft.ad": {"version": "1.4.1"}, "netapp.aws": {"version": "21.7.1"}, "netapp.azure": {"version": "21.10.1"}, "netapp.cloudmanager": {"version": "21.22.1"}, "netapp.elementsw": {"version": "21.7.0"}, "netapp.ontap": {"version": "22.8.3"}, "netapp.storagegrid": {"version": "21.11.1"}, "netapp.um_info": {"version": "21.8.1"}, "netapp_eseries.santricity": {"version": "1.4.0"}, "netbox.netbox": {"version": "3.15.0"}, "ngine_io.cloudstack": {"version": "2.3.0"}, "ngine_io.exoscale": {"version": "1.1.0"}, "openstack.cloud": {"version": "2.2.0"}, "openvswitch.openvswitch": {"version": "2.1.1"}, "ovirt.ovirt": {"version": "3.2.0"}, "purestorage.flasharray": {"version": "1.24.0"}, "purestorage.flashblade": {"version": "1.14.0"}, "purestorage.fusion": {"version": "1.6.0"}, "sensu.sensu_go": {"version": "1.14.0"}, "splunk.es": {"version": "2.1.2"}, "t_systems_mms.icinga_director": {"version": "2.0.1"}, "telekom_mms.icinga_director": {"version": "1.35.0"}, "theforeman.foreman": {"version": "3.15.0"}, "vmware.vmware_rest": {"version": "2.3.1"}, "vultr.cloud": {"version": "1.10.1"}, "vyos.vyos": {"version": "4.1.0"}, "wti.remote": {"version": "1.0.5"}}}
+2024-07-12 11:43:44,611 p=69873 u=amaseghe n=ansible | {"/home/amaseghe/.local/lib/python3.10/site-packages/ansible_collections": {"amazon.aws": {"version": "7.0.0"}, "ansible.netcommon": {"version": "5.3.0"}, "ansible.posix": {"version": "1.5.4"}, "ansible.utils": {"version": "2.12.0"}, "ansible.windows": {"version": "2.2.0"}, "arista.eos": {"version": "6.2.2"}, "awx.awx": {"version": "23.5.0"}, "azure.azcollection": {"version": "1.19.0"}, "check_point.mgmt": {"version": "5.1.1"}, "chocolatey.chocolatey": {"version": "1.5.1"}, "cisco.aci": {"version": "2.8.0"}, "cisco.asa": {"version": "4.0.3"}, "cisco.dnac": {"version": "6.8.1"}, "cisco.intersight": {"version": "2.0.3"}, "cisco.ios": {"version": "5.3.0"}, "cisco.iosxr": {"version": "6.1.1"}, "cisco.ise": {"version": "2.6.2"}, "cisco.meraki": {"version": "2.16.16"}, "cisco.mso": {"version": "2.5.0"}, "cisco.nxos": {"version": "5.3.0"}, "cisco.ucs": {"version": "1.10.0"}, "cloud.common": {"version": "2.1.4"}, "cloudscale_ch.cloud": {"version": "2.3.1"}, "community.aws": {"version": "7.0.0"}, "community.azure": {"version": "2.0.0"}, "community.ciscosmb": {"version": "1.0.7"}, "community.crypto": {"version": "2.16.1"}, "community.digitalocean": {"version": "1.24.0"}, "community.dns": {"version": "2.6.4"}, "community.docker": {"version": "3.4.11"}, "community.general": {"version": "8.1.0"}, "community.grafana": {"version": "1.6.1"}, "community.hashi_vault": {"version": "6.0.0"}, "community.hrobot": {"version": "1.8.2"}, "community.libvirt": {"version": "1.3.0"}, "community.mongodb": {"version": "1.6.3"}, "community.mysql": {"version": "3.8.0"}, "community.network": {"version": "5.0.2"}, "community.okd": {"version": "2.3.0"}, "community.postgresql": {"version": "3.2.0"}, "community.proxysql": {"version": "1.5.1"}, "community.rabbitmq": {"version": "1.2.3"}, "community.routeros": {"version": "2.11.0"}, "community.sap": {"version": "2.0.0"}, "community.sap_libs": {"version": "1.4.1"}, "community.sops": {"version": "1.6.7"}, "community.vmware": {"version": "4.0.1"}, "community.windows": {"version": "2.1.0"}, "community.zabbix": {"version": "2.2.0"}, "containers.podman": {"version": "1.11.0"}, "cyberark.conjur": {"version": "1.2.2"}, "cyberark.pas": {"version": "1.0.23"}, "dellemc.enterprise_sonic": {"version": "2.2.0"}, "dellemc.openmanage": {"version": "8.5.0"}, "dellemc.powerflex": {"version": "2.1.0"}, "dellemc.unity": {"version": "1.7.1"}, "f5networks.f5_modules": {"version": "1.27.1"}, "fortinet.fortimanager": {"version": "2.3.0"}, "fortinet.fortios": {"version": "2.3.4"}, "frr.frr": {"version": "2.0.2"}, "gluster.gluster": {"version": "1.0.2"}, "google.cloud": {"version": "1.3.0"}, "grafana.grafana": {"version": "2.2.3"}, "hetzner.hcloud": {"version": "2.4.1"}, "hpe.nimble": {"version": "1.1.4"}, "ibm.qradar": {"version": "2.1.0"}, "ibm.spectrum_virtualize": {"version": "2.0.0"}, "ibm.storage_virtualize": {"version": "2.1.0"}, "infinidat.infinibox": {"version": "1.3.12"}, "infoblox.nios_modules": {"version": "1.5.0"}, "inspur.ispim": {"version": "2.2.0"}, "inspur.sm": {"version": "2.3.0"}, "junipernetworks.junos": {"version": "5.3.1"}, "kubernetes.core": {"version": "2.4.0"}, "lowlydba.sqlserver": {"version": "2.2.2"}, "microsoft.ad": {"version": "1.4.1"}, "netapp.aws": {"version": "21.7.1"}, "netapp.azure": {"version": "21.10.1"}, "netapp.cloudmanager": {"version": "21.22.1"}, "netapp.elementsw": {"version": "21.7.0"}, "netapp.ontap": {"version": "22.8.3"}, "netapp.storagegrid": {"version": "21.11.1"}, "netapp.um_info": {"version": "21.8.1"}, "netapp_eseries.santricity": {"version": "1.4.0"}, "netbox.netbox": {"version": "3.15.0"}, "ngine_io.cloudstack": {"version": "2.3.0"}, "ngine_io.exoscale": {"version": "1.1.0"}, "openstack.cloud": {"version": "2.2.0"}, "openvswitch.openvswitch": {"version": "2.1.1"}, "ovirt.ovirt": {"version": "3.2.0"}, "purestorage.flasharray": {"version": "1.24.0"}, "purestorage.flashblade": {"version": "1.14.0"}, "purestorage.fusion": {"version": "1.6.0"}, "sensu.sensu_go": {"version": "1.14.0"}, "splunk.es": {"version": "2.1.2"}, "t_systems_mms.icinga_director": {"version": "2.0.1"}, "telekom_mms.icinga_director": {"version": "1.35.0"}, "theforeman.foreman": {"version": "3.15.0"}, "vmware.vmware_rest": {"version": "2.3.1"}, "vultr.cloud": {"version": "1.10.1"}, "vyos.vyos": {"version": "4.1.0"}, "wti.remote": {"version": "1.0.5"}}}
+2024-07-12 11:43:44,945 p=70023 u=amaseghe n=ansible | [WARNING]: Could not match supplied host pattern, ignoring: linux
+
+2024-07-12 11:43:44,945 p=70023 u=amaseghe n=ansible | playbook: site.yml
+2024-07-12 11:43:45,382 p=70048 u=amaseghe n=ansible | {
+    "ansible.builtin.runas": "Run As user",
+    "ansible.builtin.su": "Substitute User",
+    "ansible.builtin.sudo": "Substitute User DO",
+    "ansible.netcommon.enable": "Switch to elevated permissions on a network device",
+    "community.general.doas": "Do As user",
+    "community.general.dzdo": "Centrify's Direct Authorize",
+    "community.general.ksu": "Kerberos substitute user",
+    "community.general.machinectl": "Systemd's machinectl privilege escalation",
+    "community.general.pbrun": "PowerBroker run",
+    "community.general.pfexec": "profile based execution",
+    "community.general.pmrun": "Privilege Manager run",
+    "community.general.sesu": "CA Privileged Access Manager",
+    "community.general.sudosu": "Run tasks using sudo su -",
+    "containers.podman.podman_unshare": "Run tasks using podman unshare"
+}
+2024-07-12 11:43:45,477 p=69838 u=amaseghe n=ansiblelint | Listing 25 violation(s) that are fatal
+2024-07-12 11:44:01,870 p=70054 u=amaseghe n=ansible | PLAY [Patching of Linux boxes] *******************************************************************************************************
+2024-07-12 11:44:01,874 p=70054 u=amaseghe n=ansible | TASK [Gathering Facts] ***************************************************************************************************************
+2024-07-12 11:44:03,997 p=70054 u=amaseghe n=ansible | ok: [192.168.1.100]
+2024-07-12 11:44:04,002 p=70054 u=amaseghe n=ansible | ok: [192.168.1.99]
+2024-07-12 11:44:04,019 p=70054 u=amaseghe n=ansible | TASK [include vars] ******************************************************************************************************************
+2024-07-12 11:44:04,030 p=70054 u=amaseghe n=ansible | ok: [192.168.1.99]
+2024-07-12 11:44:04,037 p=70054 u=amaseghe n=ansible | ok: [192.168.1.100]
+2024-07-12 11:44:04,041 p=70054 u=amaseghe n=ansible | TASK [environment : Print dates] *****************************************************************************************************
+2024-07-12 11:44:04,056 p=70054 u=amaseghe n=ansible | ok: [192.168.1.99] => {
+    "msg": [
+        "date : 2024-07-11",
+        "time : 21:44:03"
+    ]
+}
+2024-07-12 11:44:04,065 p=70054 u=amaseghe n=ansible | ok: [192.168.1.100] => {
+    "msg": [
+        "date : 2024-07-12",
+        "time : 11:44:03"
+    ]
+}
+2024-07-12 11:44:04,070 p=70054 u=amaseghe n=ansible | TASK [environment : debug] ***********************************************************************************************************
+2024-07-12 11:44:04,084 p=70054 u=amaseghe n=ansible | ok: [192.168.1.99] => {
+    "msg": [
+        "distribution : RedHat",
+        "distribution_major_version : 9"
+    ]
+}
+2024-07-12 11:44:04,095 p=70054 u=amaseghe n=ansible | ok: [192.168.1.100] => {
+    "msg": [
+        "distribution : Ubuntu",
+        "distribution_major_version : 22"
+    ]
+}
+2024-07-12 11:44:04,127 p=70054 u=amaseghe n=ansible | TASK [patching : patch - RedHat - Update all packages to their latest version] *******************************************************
+2024-07-12 11:44:04,153 p=70054 u=amaseghe n=ansible | skipping: [192.168.1.100]
+2024-07-12 11:44:07,721 p=70054 u=amaseghe n=ansible | ok: [192.168.1.99]
+2024-07-12 11:44:07,724 p=70054 u=amaseghe n=ansible | TASK [patching : patch - RedHat - Remove dependencies that are no longer required and purge their configuration files] ***************
+2024-07-12 11:44:07,743 p=70054 u=amaseghe n=ansible | skipping: [192.168.1.100]
+2024-07-12 11:44:11,269 p=70054 u=amaseghe n=ansible | ok: [192.168.1.99]
+2024-07-12 11:44:11,277 p=70054 u=amaseghe n=ansible | TASK [patching : patch - Ubuntu - Update all packages to their latest version] *******************************************************
+2024-07-12 11:44:11,293 p=70054 u=amaseghe n=ansible | skipping: [192.168.1.99]
+2024-07-12 11:44:12,994 p=70054 u=amaseghe n=ansible | changed: [192.168.1.100]
+2024-07-12 11:44:13,004 p=70054 u=amaseghe n=ansible | TASK [patching : patch - Ubuntu - Remove dependencies that are no longer required and purge their configuration files] ***************
+2024-07-12 11:44:13,019 p=70054 u=amaseghe n=ansible | skipping: [192.168.1.99]
+2024-07-12 11:44:14,086 p=70054 u=amaseghe n=ansible | ok: [192.168.1.100]
+2024-07-12 11:44:14,118 p=70054 u=amaseghe n=ansible | TASK [debug] *************************************************************************************************************************
+2024-07-12 11:44:14,130 p=70054 u=amaseghe n=ansible | ok: [192.168.1.99] => {
+    "msg": [
+        "192.168.1.99 packages updated successfully "
+    ]
+}
+2024-07-12 11:44:14,137 p=70054 u=amaseghe n=ansible | ok: [192.168.1.100] => {
+    "msg": [
+        "192.168.1.100 packages updated successfully "
+    ]
+}
+2024-07-12 11:44:14,151 p=70054 u=amaseghe n=ansible | PLAY RECAP ***************************************************************************************************************************
+2024-07-12 11:44:14,151 p=70054 u=amaseghe n=ansible | 192.168.1.100              : ok=7    changed=1    unreachable=0    failed=0    skipped=2    rescued=0    ignored=0   
+2024-07-12 11:44:14,151 p=70054 u=amaseghe n=ansible | 192.168.1.99               : ok=7    changed=0    unreachable=0    failed=0    skipped=2    rescued=0    ignored=0   

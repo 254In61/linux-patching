@@ -1,0 +1,18 @@
+---
+- name: Patching of Linux boxes
+  hosts: linux 
+  gather_facts: true
+  become: true
+
+  tasks:
+    - name: include vars
+      include_vars:
+        dir: group_vars
+    
+    - import_role:
+        name: patching
+
+  post_tasks:
+    - debug:
+        msg:
+          - "{{ inventory_hostname }} packages updated successfully " 
