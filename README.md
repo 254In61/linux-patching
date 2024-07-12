@@ -26,4 +26,8 @@ NOTES
 
 HOW TO RUN
 ===========
-$ ansible-playbook site.yml --ask-become-pass
+ $ ansible-playbook site.yml --ask-become-pass
+
+TESTS
+=====
+** To be done
