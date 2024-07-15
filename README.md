@@ -22,3 +22,12 @@ NOTES
 =====
 > gather_facts = yes to collect Ansible facts.
 ** You can see the "raw" info as gathered by running the setup module : $ ansible <hostname> -m setup
+
+
+HOW TO RUN
+===========
+ $ ansible-playbook site.yml --ask-become-pass
+
+TESTS
+=====
+** To be done
