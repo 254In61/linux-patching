@@ -1,18 +1,24 @@
 ---
 - name: Patching of Linux boxes
-  hosts: linux 
+  hosts: linux
   gather_facts: true
   become: true
 
   tasks:
-    - name: include vars
-      include_vars:
+    - name: Include vars
+      ansible.builtin.include_vars:
         dir: group_vars
-    
-    - import_role:
+
+    - name: Import environment role
+      ansible.builtin.import_role:
+        name: environment
+
+    - name: Import patching role
+      ansible.builtin.import_role:
         name: patching
 
   post_tasks:
-    - debug:
+    - name: Debug the outcome
+      ansible.builtin.debug:
         msg:
-          - "{{ inventory_hostname }} packages updated successfully " 
+          - "{{ inventory_hostname }} packages updated successfully "

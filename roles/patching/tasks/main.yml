@@ -1,3 +1,4 @@
 ---
 # tasks file for roles/patching
-- import_tasks: patch.yml
+- name: Import patch.yml tasks
+  ansible.builtin.import_tasks: patch.yml

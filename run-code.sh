@@ -1,17 +1,26 @@
 #!/usr/bin/bash
 
-# Checks on syntax and ansible best practises
-# pip install ansible-lint
-ansible-lint *.yml
+function code-quality-check(){
+   echo "" && echo "==> CODE QUALITY CHECKS - ansible-lint " && echo ""
+   # Checks on syntax and ansible best practises
+   # pip install ansible-lint
+   ansible-lint *.yml
 
+   # lint checks using yamllint
+   # pip install yamllint
+   echo "" && echo "==> CODE QUALITY CHECKS - yamllint " && echo ""
+   yamllint site.yml
+   yamllint roles/environment/tasks/*.yml
+   yamllint roles/patching/tasks/*.yml
 
-# lint checks using yamllint
-# pip install yamllint
+}
 
-yamllint site.yml
-yamllint roles/environment/tasks/*.yml
-yamllint roles/patching/tasks/*.yml
+function site(){
+    # Run playbook
+    echo "" && echo "==> RUN PLAYBOOK " && echo ""
+    # ansible-playbook site.yml --ask-become-pas
+    
+}
 
-
-# Run playbook
-ansible-playbook site.yml --ask-become-pas
+code-quality-check
+# site
